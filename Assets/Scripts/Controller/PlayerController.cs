@@ -35,8 +35,15 @@ namespace Controller
         public void ChangeActor(Common.ActorDef actor)
         {
             m_ActorIMG.sprite = SpriteManager.GetInstance().GetActorSprite(actor);
+            m_ActorIMG.color = Color.white;
         }
-        
+
+        public void CloseActor(Common.ActorDef actor)
+        {
+            m_ActorIMG.sprite = SpriteManager.GetInstance().GetActorSprite(actor);
+            m_ActorIMG.color = Color.gray;
+        }
+
         public int GetSelectIndex()
         {
             return m_selectID;

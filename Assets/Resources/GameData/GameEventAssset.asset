@@ -16,27 +16,27 @@ MonoBehaviour:
   - NID: 1
     CardID: 1
     EventName: "\u7238\u7238\u548C\u5ABD\u5ABD\u90FD\u60F3\u8981\u5BB6\u88E1\u6709\u500B\u4F11\u606F\u7684\u5730\u65B9"
-    ChooseID1: 0
-    ChooseID2: 0
-    ChooseID3: 0
+    ChooseID1: 1
+    ChooseID2: 1
+    ChooseID3: 1
   - NID: 2
     CardID: 1
     EventName: "\u5ABD\u5ABD\uFF1A\u60F3\u8981\u5927\u5BB6\u80FD\u4E00\u8D77\u5403\u98EF"
-    ChooseID1: 0
-    ChooseID2: 0
-    ChooseID3: 0
+    ChooseID1: 2
+    ChooseID2: 3
+    ChooseID3: 4
   - NID: 3
     CardID: 1
     EventName: "\u5152\u5B50\uFF1A\u60F3\u8981\u8056\u8A95\u79AE\u7269"
-    ChooseID1: 0
-    ChooseID2: 0
-    ChooseID3: 0
+    ChooseID1: 5
+    ChooseID2: 6
+    ChooseID3: 7
   - NID: 4
     CardID: 1
     EventName: "\u5ABD\u5ABD\uFF1A\u5152\u5B50\u8981\u4E0A\u5C0F\u5B78\u4E86"
-    ChooseID1: 0
-    ChooseID2: 0
-    ChooseID3: 0
+    ChooseID1: 8
+    ChooseID2: 9
+    ChooseID3: 10
   - NID: 5
     CardID: 0
     EventName: "\u5973\u5152\uFF1A\u60F3\u8981\u990A\u5BF5\u7269"

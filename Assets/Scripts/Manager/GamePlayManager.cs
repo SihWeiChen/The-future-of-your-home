@@ -42,12 +42,17 @@ public class GamePlayManager : IPlayerEvent
     }
 
     bool bFirst = true;
+
+    List<ActorDef> m_select = new List<ActorDef>();
+
     public void Update()
     {
         if (GameLogic.GetInstance.GetGameData().ioState == IO_STATE.InGame)
         {
             if(bFirst == true)
             {
+                for (int i = 0; i < GameSetting.PLAYER_MAXIMUM; i++)
+                    ClosePlayerIcon(i, ActorDef.Dad);
                 PlayerUIData[] data = GameLogic.GetInstance.GetGameData().playerUIDatas;
                 for (int i = 0; i < data.Length; i++)
                 {
@@ -87,18 +92,23 @@ public class GamePlayManager : IPlayerEvent
                     int quality = TableData.Init.GetChooseTableData(answer).ChangeQuality;
                     int money = TableData.Init.GetChooseTableData(answer).ChangeMoney;
 
+                    Debug.Log("life: " + life);
+                    Debug.Log("money: " + money);
+                    Debug.Log("quality: " + quality);
                     stateList.SetLife(life);
                     stateList.SetMoney(money);
                     stateList.SetQuality(quality);
 
                     m_questionState = (QuestionState) TableData.Init.GetChooseTableData(answer).OpenEventNID;
+                    m_questionState = QuestionState.Develop;
 
-                    foreach(PlayerController player in playerList)
+                    foreach (PlayerController player in playerList)
                     {
                         player.bSelected = false;
                     }
 
                     SetQuestion(GetQuestionID());
+                    m_chooseState = ChooseState.WaitOther;
                     Debug.Log("ChooseState.End");
                     break;
             }
@@ -145,6 +155,11 @@ public class GamePlayManager : IPlayerEvent
         Debug.Log("PlayerID" + PlayerID);
         Debug.Log("actor" + actor.ToString());
         playerList[PlayerID].ChangeActor(actor);
+    }
+
+    public void ClosePlayerIcon(int PlayerID, Common.ActorDef actor)
+    {
+        playerList[PlayerID].CloseActor(actor);
     }
 
     public void SetPlayerSelect(int PlayerID, int selectIndex)
@@ -241,7 +256,9 @@ public class GamePlayManager : IPlayerEvent
     public int GetQuestionID()
     {
         int questionID = 0;
-        switch(m_questionState)
+        questionID = Random.Range(0, 5);
+        return questionID;
+        switch (m_questionState)
         {
             case QuestionState.Demo:
                 questionID = 0;
