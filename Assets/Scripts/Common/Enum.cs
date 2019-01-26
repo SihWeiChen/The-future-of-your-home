@@ -9,8 +9,6 @@ namespace Common
         public static int PLAYER_MAXIMUM = 4;
     }
 
-
-
     public enum ActorDef
     {
         Dad = 0,
@@ -46,5 +44,22 @@ namespace Common
         PS4 = 3,
     }
 
+    public enum IO_STATE
+    {
+        None = 0,
+        SelectCharacter,
+        InGame, 
+    }
 
+    public enum IO_Command
+    {
+        A = 0,
+        B,
+        C,
+        D,
+        Up, 
+        Down,
+        Left,
+        Right,
+    }
 }
