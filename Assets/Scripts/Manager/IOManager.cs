@@ -145,6 +145,7 @@ namespace Manager
                     GameLogic.GetInstance.GetUIManager().PlayerCommand(1, IO_Command.Right);
                     break;
                 case IO_STATE.InGame:
+                    GameLogic.GetInstance.GetGamePlayerManager().PlayerCommand(1, IO_Command.Right);
                     break;
                 default:
                     break;
@@ -162,6 +163,7 @@ namespace Manager
                     GameLogic.GetInstance.GetUIManager().PlayerCommand(1, IO_Command.Left);
                     break;
                 case IO_STATE.InGame:
+                    GameLogic.GetInstance.GetGamePlayerManager().PlayerCommand(1, IO_Command.Right);
                     break;
                 default:
                     break;
@@ -226,6 +228,42 @@ namespace Manager
                 case IO_STATE.SelectCharacter:
                     break;
                 case IO_STATE.InGame:
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        void P2_Right()
+        {
+            Debug.Log(string.Format("P2_Right"));
+            switch (GameLogic.GetInstance.GetGameData().ioState)
+            {
+                case IO_STATE.None:
+                    break;
+                case IO_STATE.SelectCharacter:
+                    GameLogic.GetInstance.GetUIManager().PlayerCommand(2, IO_Command.Right);
+                    break;
+                case IO_STATE.InGame:
+                    GameLogic.GetInstance.GetGamePlayerManager().PlayerCommand(2, IO_Command.Right);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        void P2_Left()
+        {
+            Debug.Log(string.Format("P2_Left"));
+            switch (GameLogic.GetInstance.GetGameData().ioState)
+            {
+                case IO_STATE.None:
+                    break;
+                case IO_STATE.SelectCharacter:
+                    GameLogic.GetInstance.GetUIManager().PlayerCommand(2, IO_Command.Left);
+                    break;
+                case IO_STATE.InGame:
+                    GameLogic.GetInstance.GetGamePlayerManager().PlayerCommand(2, IO_Command.Left);
                     break;
                 default:
                     break;
