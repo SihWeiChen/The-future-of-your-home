@@ -12,13 +12,14 @@ public class GamePlayManager
     {
         PlayerController,
         StateController,
+        QuestionController,
     }
 
     List<PlayerController> playerList = new List<PlayerController>();
     List<int> stateList = new List<int>();
 
     List<int> itemSelectList = new List<int>();
-
+    QuestionController question;
     public void Init()
     {
 
@@ -32,10 +33,12 @@ public class GamePlayManager
             SetPlayerIcon(i, actor);
         }
     }
+
     public void Awake()
     {
 
     }
+
     public void Update()
     {
 
@@ -50,6 +53,9 @@ public class GamePlayManager
                 break;
             case RegistType.StateController:
                 stateList = (List<int>)r_object;
+                break;
+            case RegistType.QuestionController:
+                question = (QuestionController)r_object;
                 break;
         }
     }
@@ -72,18 +78,23 @@ public class GamePlayManager
         {
             case IO_Command.Left:
 
-                break;
+                //break;
 
             case IO_Command.Right:
 
-                break;
+                //break;
 
             case IO_Command.A:
             case IO_Command.B:
             case IO_Command.C:
             case IO_Command.D:
-                
+                SetQuestion(Random.Range(0, 21));
                 break;
         }
+    }
+
+    public void SetQuestion(int eventID)
+    {
+        question.SetQuestionString(TableData.Init.GetEventTableData(eventID).EventName);
     }
 }
