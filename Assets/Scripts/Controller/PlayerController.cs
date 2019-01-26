@@ -7,6 +7,7 @@ namespace Controller
 {
     public class PlayerController : MonoBehaviour
     {
+        public int m_playerID;
         public Image m_ActorIMG;
 
         public Image m_Item1;
@@ -15,6 +16,7 @@ namespace Controller
         // Start is called before the first frame update
         void Start()
         {
+            GameLogic.GetInstance.GetGamePlayerManager().Regist(GamePlayManager.RegistType.PlayerController, this);
         }
 
         // Update is called once per frame
@@ -34,12 +36,12 @@ namespace Controller
             }
         }
 
-        void ChangeActor(Common.ActorDef actor)
+        public void ChangeActor(Common.ActorDef actor)
         {
             m_ActorIMG.sprite = SpriteManager.GetInstance().GetActorSprite(actor);
         }
 
-        void ChangeItem(Common.EventItem item1, Common.EventItem item2, Common.EventItem item3)
+        public void ChangeItem(Common.EventItem item1, Common.EventItem item2, Common.EventItem item3)
         {
             m_Item1.sprite = SpriteManager.GetInstance().GetItemSprite(item1);
             m_Item2.sprite = SpriteManager.GetInstance().GetItemSprite(item2);
