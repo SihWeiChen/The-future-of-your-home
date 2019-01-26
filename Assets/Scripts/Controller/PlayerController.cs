@@ -61,7 +61,7 @@ namespace Controller
                 m_selectID++;
             else
                 m_selectID--;
-            switch (index)
+            switch (m_selectID)
             {
                 case 0:
                     m_Select1.enabled = true;
