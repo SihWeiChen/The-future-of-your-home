@@ -17,7 +17,12 @@ public class TableData : singlebase<TableData>
                              typeof(GameEventList)) as GameEventList;
         if (eventList.gameEventTables.Count < nid)
             return null;
-        return eventList.gameEventTables[nid];
+        foreach (var item in eventList.gameEventTables)
+        {
+            if (item.NID == nid)
+                return item;
+        }
+        return null;
     }
 
     public GameChooseTableData GetChooseTableData(int nid)
@@ -27,6 +32,11 @@ public class TableData : singlebase<TableData>
                              typeof(GameChooseList)) as GameChooseList;
         if (eventList2.chooseTablesList.Count < nid)
             return null;
-        return eventList2.chooseTablesList[nid];
+        foreach (var item in eventList2.chooseTablesList)
+        {
+            if (item.NID == nid)
+                return item;
+        }
+        return null;
     }
 }

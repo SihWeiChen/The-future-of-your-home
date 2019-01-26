@@ -25,3 +25,117 @@ MonoBehaviour:
     ChooseID1: 0
     ChooseID2: 0
     ChooseID3: 0
+  - NID: 3
+    CardID: 1
+    EventName: "\u5152\u5B50\uFF1A\u60F3\u8981\u8056\u8A95\u79AE\u7269"
+    ChooseID1: 0
+    ChooseID2: 0
+    ChooseID3: 0
+  - NID: 4
+    CardID: 1
+    EventName: "\u5ABD\u5ABD\uFF1A\u5152\u5B50\u8981\u4E0A\u5C0F\u5B78\u4E86"
+    ChooseID1: 0
+    ChooseID2: 0
+    ChooseID3: 0
+  - NID: 5
+    CardID: 0
+    EventName: "\u5973\u5152\uFF1A\u60F3\u8981\u990A\u5BF5\u7269"
+    ChooseID1: 0
+    ChooseID2: 0
+    ChooseID3: 0
+  - NID: 6
+    CardID: 1
+    EventName: "\u7238\u7238\uFF1A\u4E0D\u60F3\u518D\u642D\u6377\u904B\u901A\u52E4\u4E86"
+    ChooseID1: 0
+    ChooseID2: 0
+    ChooseID3: 0
+  - NID: 7
+    CardID: 1
+    EventName: "\u5ABD\u5ABD\uFF1A\u5C0F\u5B69\u5B50\u7684\u6559\u80B2\u5F88\u91CD\u8981"
+    ChooseID1: 0
+    ChooseID2: 0
+    ChooseID3: 0
+  - NID: 8
+    CardID: 2
+    EventName: "\u7238\u7238\uFF1A\u5347\u5B98\u7576\u4E3B\u7BA1\u4E86"
+    ChooseID1: 0
+    ChooseID2: 0
+    ChooseID3: 0
+  - NID: 9
+    CardID: 2
+    EventName: "\u5ABD\u5ABD\uFF1A\u6253\u6383\u5BB6\u88E1\u597D\u7D2F"
+    ChooseID1: 0
+    ChooseID2: 0
+    ChooseID3: 0
+  - NID: 10
+    CardID: 2
+    EventName: "\u5152\u5B50\uFF1A\u540C\u5B78\u5011\u5927\u5BB6\u90FD\u6709PS4"
+    ChooseID1: 0
+    ChooseID2: 0
+    ChooseID3: 0
+  - NID: 11
+    CardID: 2
+    EventName: "\u5973\u5152\uFF1A\u6211\u88AB\u4EBA\u5BB6\u7B11\u919C"
+    ChooseID1: 0
+    ChooseID2: 0
+    ChooseID3: 0
+  - NID: 12
+    CardID: 2
+    EventName: "\u5ABD\u5ABD\uFF1A\u60F3\u8981\u5BB6\u88E1\u591A\u4E00\u9EDE\u64FA\u98FE"
+    ChooseID1: 0
+    ChooseID2: 0
+    ChooseID3: 0
+  - NID: 13
+    CardID: 3
+    EventName: "\u5152\u5B50\uFF1A\u9694\u58C1\u90A3\u500BOOO\u4ECA\u5929\u63CD\u6211"
+    ChooseID1: 0
+    ChooseID2: 0
+    ChooseID3: 0
+  - NID: 14
+    CardID: 3
+    EventName: "\u7238\u7238\uFF1A\u5DE5\u4F5C\u72AF\u932F\uFF0C\u8001\u95C6\u53EB\u6211\u8F49\u904B\u63DB\u98A8\u6C34"
+    ChooseID1: 0
+    ChooseID2: 0
+    ChooseID3: 0
+  - NID: 15
+    CardID: 3
+    EventName: "\u5ABD\u5ABD\uFF1A\u60F3\u8981\u5168\u5BB6\u4E00\u8D77\u7559\u4E0B\u56DE\u61B6"
+    ChooseID1: 0
+    ChooseID2: 0
+    ChooseID3: 0
+  - NID: 16
+    CardID: 3
+    EventName: "\u5152\u5B50\uFF1A\u6211\u8981\u8B8A\u5F97\u5F88\u778E\u8DB4"
+    ChooseID1: 0
+    ChooseID2: 0
+    ChooseID3: 0
+  - NID: 17
+    CardID: 3
+    EventName: "\u5973\u5152\uFF1A\u6211\u4EA4\u4E86\u7537\u670B\u53CB"
+    ChooseID1: 0
+    ChooseID2: 0
+    ChooseID3: 0
+  - NID: 18
+    CardID: 3
+    EventName: "\u5ABD\u5ABD\uFF1A\u5152\u5B50\u8D8A\u4F86\u8D8A\u4E0D\u807D\u6211\u7684\u8A71"
+    ChooseID1: 0
+    ChooseID2: 0
+    ChooseID3: 0
+  - NID: 19
+    CardID: 3
+    EventName: "\u7238\u7238\uFF1A\u8EAB\u9AD4\u8D8A\u4F86\u8D8A\u5DEE\u4E86"
+    ChooseID1: 0
+    ChooseID2: 0
+    ChooseID3: 0
+  - NID: 20
+    CardID: 3
+    EventName: "\u5973\u5152\uFF1A\u6211\u8981\u53BB\u570B\u5916\u8B80\u66F8"
+    ChooseID1: 0
+    ChooseID2: 0
+    ChooseID3: 0
+  - NID: 21
+    CardID: 3
+    EventName: "\u5152\u5B50\uFF1A\u6211\u628A\u5973\u670B\u53CB\u7684\u809A\u5B50\u641E\u5927\u4E86"
+    ChooseID1: 0
+    ChooseID2: 0
+    ChooseID3: 0

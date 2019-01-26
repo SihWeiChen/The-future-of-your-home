@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class BTest : MonoBehaviour
 {
+    public bool Up;
+    public int EventNid;
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(TableData.Init.GetEventTableData(1).EventName);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(Up){
+            Debug.Log(TableData.Init.GetEventTableData(EventNid).EventName);
+            Up = false;
+        }
     }
 }

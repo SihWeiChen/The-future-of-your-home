@@ -60,14 +60,14 @@ public class ScripteObjectEditor : EditorWindow
         if (GUILayout.Button("Add event"))
         {
             GameEventTableData newData = new GameEventTableData();
-            newData.NID = eventList2.chooseTablesList.Count;
+            newData.NID = eventList2.chooseTablesList[eventList2.chooseTablesList.Count-1].NID+1;
             eventList.gameEventTables.Add(newData);
             EditorUtility.SetDirty(eventList);
         }
         if (GUILayout.Button("Add choose"))
         {
             GameChooseTableData newData = new GameChooseTableData();
-            newData.NID = eventList2.chooseTablesList.Count;
+            newData.NID = eventList2.chooseTablesList[eventList2.chooseTablesList.Count-1].NID+1;
             eventList2.chooseTablesList.Add(newData);
             EditorUtility.SetDirty(eventList2);
         }
