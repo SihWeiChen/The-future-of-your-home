@@ -57,7 +57,10 @@ namespace Controller
 
         public void SelectItem(int index)
         {
-            m_selectID = index;
+            if (index == 0)
+                m_selectID++;
+            else
+                m_selectID--;
             switch (index)
             {
                 case 0:
