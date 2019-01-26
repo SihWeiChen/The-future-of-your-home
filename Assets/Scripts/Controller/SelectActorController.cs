@@ -16,7 +16,6 @@ namespace Controller
         // Update is called once per frame
         void Update()
         {
-            ChangeActor(curSpriteIndex);
         }
 
         public void ChangeActor(Common.ActorDef actor)
@@ -25,7 +24,8 @@ namespace Controller
             ChangeActor(index);
         }
         public void ChangeActor(int index)
-        { 
+        {
+            Debug.Log("index: " + index);
             curSpriteIndex = index;
             m_Image.sprite = arySourceSprite[curSpriteIndex];
         }

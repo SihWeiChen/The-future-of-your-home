@@ -2,15 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
-public class GameEventList : ScriptableObject
-{
-    public List<GameEventTable> gameEventTables;
-}
-
-[System.Serializable]
-public class GameEventTable 
+[System.Serializable]   
+public class GameEventTableData
 {
     /// <summary>
     /// NID

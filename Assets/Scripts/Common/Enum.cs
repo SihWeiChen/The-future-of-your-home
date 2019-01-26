@@ -21,29 +21,30 @@ namespace Common
 
     public class EventObject
     {
-        public string eventName;
-        public int Quality;
-        public int Affection;
-        public int Money;
-        public List<int> openEvent;
+        public int m_EventID;
+        public string m_EventName;
+        public int m_Quality;
+        public int m_Affection;
+        public int m_Money;
+        public List<int> m_OpenEvent;
+        public EventObject(int eventID, string eventName, int quality, int affection, int money)
+        {
+            m_EventID = eventID;
+            m_EventName = eventName;
+            m_Quality = quality;
+            m_Affection = affection;
+            m_Money = money;
+        }
     }
 
-    public enum IO_STATE
+
+    public enum EventItem
     {
-        None = 0,
-        SelectCharacter,
-        InGame,
+        Car = 0,
+        Book = 1,
+        Hat = 2,
+        PS4 = 3,
     }
 
-    public enum IO_Command
-    {
-        A = 0,
-        B,
-        C,
-        D,
-        Up,
-        Down,
-        Left,
-        Right, 
-    }
+
 }
