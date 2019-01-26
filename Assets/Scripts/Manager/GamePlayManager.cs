@@ -14,7 +14,10 @@ public class GamePlayManager
 
     List<PlayerController> playerList = new List<PlayerController>();
     List<int> stateList = new List<int>();
+    public void Init()
+    {
 
+    }
     public void Start()
     {
 
