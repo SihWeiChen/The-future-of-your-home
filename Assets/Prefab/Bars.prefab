@@ -102,6 +102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3804152655610867209}
+  - component: {fileID: 3380909532064603318}
   m_Layer: 0
   m_Name: Bars
   m_TagString: Untagged
@@ -126,6 +127,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3380909532064603318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736781855652385455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c9b96ba0c8bf9044b8886e283111b11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_bars_Q: {fileID: 3618425026064547819}
+  m_bars_L: {fileID: 9121679329087508321}
+  m_bars_M: {fileID: 8112902437526519999}
 --- !u!1 &1622258816880060069
 GameObject:
   m_ObjectHideFlags: 0
