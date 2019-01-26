@@ -47,7 +47,7 @@ namespace Manager
             if (Input.GetButtonDown("P1_D"))
                 P1_D();
 
-            if (Input.GetButtonDown("P1_A"))
+            if (Input.GetButtonDown("P1_A") || Input.GetKeyDown(KeyCode.P))
                 P1_A();
 
             if (Input.GetButtonDown("P1_C"))
