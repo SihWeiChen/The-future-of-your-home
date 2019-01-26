@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class QuestionController : MonoBehaviour
 {
     public Text m_Question;
+    public Text m_Answer1;
+    public Text m_Answer2;
+    public Text m_Answer3;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +25,11 @@ public class QuestionController : MonoBehaviour
         }
     }
 
-    public void SetQuestionString(string value)
+    public void SetQuestionString(string value, string an1, string an2, string an3)
     {
         m_Question.text = value;
+        m_Answer1.text = an1;
+        m_Answer2.text = an2;
+        m_Answer3.text = an3;
     }
 }

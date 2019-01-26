@@ -15,6 +15,14 @@ public class GamePlayManager
         QuestionController,
     }
 
+    public enum ChooseState
+    {
+        WaitOther,
+        End,
+    }
+    ChooseState m_chooseState = ChooseState.WaitOther;
+
+
     List<PlayerController> playerList = new List<PlayerController>();
     StateController stateList = new StateController();
 
@@ -26,18 +34,20 @@ public class GamePlayManager
     }
     public void Start()
     {
+
     }
 
     public void Awake()
     {
 
     }
-    bool bFirst = false;
+
+    bool bFirst = true;
     public void Update()
     {
-        if(bFirst == false)
+        if (GameLogic.GetInstance.GetGameData().ioState == IO_STATE.InGame)
         {
-            try
+            if(bFirst == true)
             {
                 PlayerUIData[] data = GameLogic.GetInstance.GetGameData().playerUIDatas;
                 for (int i = 0; i < data.Length; i++)
@@ -45,12 +55,31 @@ public class GamePlayManager
                     ActorDef actor = (ActorDef)data[i].uiPos;
                     SetPlayerIcon(i, actor);
                 }
-                bFirst = true;
+                bFirst = false;
             }
-            catch
-            {
 
+            switch(m_chooseState)
+            {
+                case ChooseState.WaitOther:
+                    bool allSelect = true;
+                    foreach(PlayerController player in playerList)
+                    {
+                        if (player.bSelected == false)
+                        {
+                            allSelect = false;
+                            break;
+                        }
+                    }
+                    if (allSelect == true)
+                        m_chooseState = ChooseState.End;
+                    break;
+
+                case ChooseState.End:
+
+                    break;
             }
+
+
         }
     }
 
@@ -59,7 +88,7 @@ public class GamePlayManager
         switch (v_type)
         {
             case RegistType.PlayerController:
-                playerList.Add((PlayerController)r_object);
+                playerList = ((List<PlayerController>)r_object);
                 break;
             case RegistType.StateController:
                 stateList = (StateController)r_object;
@@ -91,8 +120,10 @@ public class GamePlayManager
 
     public void PlayerCommand(int v_playerID, IO_Command r_ioCommand)
     {
+        Debug.Log("v_playerID: " + v_playerID);
+        Debug.Log("IO_Command: " + r_ioCommand.ToString());
         PlayerController player = playerList[v_playerID];
-        switch(r_ioCommand)
+        switch (r_ioCommand)
         {
             case IO_Command.Left:
                 SetPlayerSelect(v_playerID, 0);
@@ -106,6 +137,7 @@ public class GamePlayManager
             case IO_Command.B:
             case IO_Command.C:
             case IO_Command.D:
+                SetPlayerSelect(v_playerID, 2);
                 SetQuestion(Random.Range(0, 21));
                 break;
         }
@@ -113,6 +145,23 @@ public class GamePlayManager
 
     public void SetQuestion(int eventID)
     {
-        question.SetQuestionString(TableData.Init.GetEventTableData(eventID).EventName);
+        question.SetQuestionString(TableData.Init.GetEventTableData(eventID).EventName, "123", "456", "789");
+    }
+
+    public enum QuestionState
+    {
+        Demo = 0,
+        Creator = 1,
+        Develop = 2,
+        Fight = 3,
+    }
+    QuestionState m_questionState = QuestionState.Demo;
+
+    public enum QuestionEndID
+    {
+        Demo = 0,
+        Creator = 20,
+        Develop = 39,
+        Fight = 60,
     }
 }

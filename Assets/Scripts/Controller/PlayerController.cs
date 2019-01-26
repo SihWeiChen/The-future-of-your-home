@@ -18,12 +18,12 @@ namespace Controller
         public Image m_Select1;
         public Image m_Select2;
         public Image m_Select3;
+
+        public bool bSelected = false;
         // Start is called before the first frame update
         void Awake()
         {
-            Debug.Log("playercontroller");
-            GameLogic.GetInstance.GetGamePlayerManager().Regist(GamePlayManager.RegistType.PlayerController, this);
-            SelectItem(0);
+            SelectItem(-1);
         }
 
         // Update is called once per frame
@@ -55,20 +55,35 @@ namespace Controller
             m_Item3.sprite = SpriteManager.GetInstance().GetItemSprite(item3);
         }
 
-        public void SelectItem(int index)
+        public int GetSelectIndex()
         {
-            if (index == 1)
+            return m_selectID;
+        }
+
+        public void SelectItem(int cmd)
+        {
+            if (bSelected == true)
+                return;
+            if (cmd == 2)
+            {
+                bSelected = true;
+                return;
+            }
+            if (cmd == 1)
             {
                 if (m_selectID == 2)
                     return;
                     m_selectID++;
-
             }
-            else
+            else if(cmd == 0)
             {
                 if (m_selectID == 0)
                     return;
                 m_selectID--;
+            }
+            else if(cmd == -1)
+            {
+                m_selectID = 0;
             }
 
             switch (m_selectID)

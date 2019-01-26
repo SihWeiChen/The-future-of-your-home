@@ -13,8 +13,8 @@ namespace Common
     {
         Dad = 0,
         Mom = 1,
-        Son = 2,
-        Daughter = 3,
+        Daughter = 2,
+        Son = 3,
     }
 
     public class EventObject
