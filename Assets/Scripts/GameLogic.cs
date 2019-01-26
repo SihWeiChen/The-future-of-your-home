@@ -50,6 +50,17 @@ public class GameLogic : MonoBehaviour
         m_clsGameData.Update();
         m_clsUIManager.Update();
         m_clsGamePlayerManager.Update();
+
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            PlayerUIData[] datas = GetGameData().playerUIDatas;
+
+            for (int i = 0; i < datas.Length; i++)
+            {
+                Debug.Log("Player "+ i + ": " + datas[i].uiPos);
+            }
+        }
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
