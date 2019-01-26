@@ -1,12 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 using Controller;
 using Common;
 using Data;
 
-public class GamePlayManager
+public class GamePlayManager : IPlayerEvent
 {
     public enum RegistType
     {
@@ -118,7 +117,7 @@ public class GamePlayManager
         playerList[PlayerID].SelectItem(selectIndex);
     }
 
-    public void PlayerCommand(int v_playerID, IO_Command r_ioCommand)
+    public void PlayerIOCommand(int v_playerID, IO_Command r_ioCommand)
     {
         Debug.Log("v_playerID: " + v_playerID);
         Debug.Log("IO_Command: " + r_ioCommand.ToString());

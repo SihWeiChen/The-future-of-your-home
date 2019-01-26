@@ -12,6 +12,7 @@ public class GameLogic : MonoBehaviour
     GameData m_clsGameData;
     UIManager m_clsUIManager;
     GamePlayManager m_clsGamePlayerManager;
+    AudioManager m_clsAudioManager;
 
     void Awake()
     {
@@ -24,6 +25,9 @@ public class GameLogic : MonoBehaviour
         m_clsGameData = new GameData();
         m_clsUIManager = new UIManager();
         m_clsGamePlayerManager = new GamePlayManager();
+        m_clsAudioManager = new AudioManager();
+
+        m_clsAudioManager.Awake();
     }
 
     void Start()
@@ -35,6 +39,7 @@ public class GameLogic : MonoBehaviour
         m_clsGameData.Start();
         m_clsUIManager.Start();
         m_clsGamePlayerManager.Start();
+        m_clsAudioManager.Start();
         Init();
     }
 
@@ -43,6 +48,7 @@ public class GameLogic : MonoBehaviour
         m_clsGameData.Init();
         m_clsUIManager.Init();
         m_clsGamePlayerManager.Init();
+        m_clsAudioManager.Init();
     }
 
     void Update()
@@ -50,7 +56,7 @@ public class GameLogic : MonoBehaviour
         m_clsGameData.Update();
         m_clsUIManager.Update();
         m_clsGamePlayerManager.Update();
-
+        m_clsAudioManager.Update();
         DetectStartGame();
     }
 
@@ -77,7 +83,7 @@ public class GameLogic : MonoBehaviour
         }
     }
 
-    public void LoadingGame()
+    public void ChangeSceneToGame()
     {
         SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
         GetGameData().ioState = Common.IO_STATE.InGame;
@@ -98,5 +104,6 @@ public class GameLogic : MonoBehaviour
     {
         return m_clsGamePlayerManager;
     }
+
     #endregion
 }

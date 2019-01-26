@@ -6,7 +6,7 @@ using Common;
 
 namespace Manager
 {
-    public class UIManager
+    public class UIManager : IPlayerEvent
     {
         public enum UI_REGIST_TYPE
         {
@@ -47,7 +47,7 @@ namespace Manager
 
         }
 
-        public void PlayerCommand(int v_playerID, IO_Command r_ioCommand)
+        public void PlayerIOCommand(int v_playerID, IO_Command r_ioCommand)
         {
             m_lisPlayerUIController.Command(v_playerID, r_ioCommand);
         }
@@ -56,5 +56,6 @@ namespace Manager
         {
             m_lisPlayerUIController.StartCDTimer();
         }
+
     }
 }

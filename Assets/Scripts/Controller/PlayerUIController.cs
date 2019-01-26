@@ -27,6 +27,7 @@ namespace Controller
         [SerializeField] TextMeshProUGUI m_tmpLoading;
 
         [SerializeField] Animation[] m_animCharacterScale;
+        [SerializeField] TextMeshProUGUI m_tmpLogo;
 
         const int m_iTimes = 5;
         int m_iCurTimes;
@@ -73,7 +74,7 @@ namespace Controller
 
             m_bChangeScene = false;
             m_fChangeSceneClock = 0.0f;
-
+            m_tmpLogo.enabled = true;
             m_tmpCDTimer.enabled = false;
             m_bStartCountDown = false;
             m_fCountDownClock = 0.0f;
@@ -132,7 +133,7 @@ namespace Controller
 
                     m_bStartLoading = false;
 
-                    GameLogic.GetInstance.LoadingGame();
+                    GameLogic.GetInstance.ChangeSceneToGame();
                 }
             }
         }
@@ -225,6 +226,7 @@ namespace Controller
 
         public void PlayLoading()
         {
+            m_tmpLogo.enabled = false;
             m_imgLoadingBG.enabled = true;
             m_tmpLoading.enabled = true;
 
