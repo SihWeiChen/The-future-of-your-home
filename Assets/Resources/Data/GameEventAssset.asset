@@ -12,4 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: GameEventAssset
   m_EditorClassIdentifier: Assembly-CSharp::GameEventList
-  gameEventTables: []
+  gameEventTables:
+  - NID: 1
+    CardID: 1
+    EventName: "\u6C92\u9322"
+    ChooseID1: 0
+    ChooseID2: 0
+    ChooseID3: 0
+  - NID: 2
+    CardID: 1
+    EventName: "\u6C92\u5973\u53CB"
+    ChooseID1: 0
+    ChooseID2: 0
+    ChooseID3: 0
+  - NID: 3
+    CardID: 2
+    EventName: "\u6211\u662F\u4E8B\u4EF6\u4E8C"
+    ChooseID1: 0
+    ChooseID2: 0
+    ChooseID3: 0
