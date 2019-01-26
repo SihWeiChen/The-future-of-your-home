@@ -13,9 +13,15 @@ MonoBehaviour:
   m_Name: GameEventAssset
   m_EditorClassIdentifier: 
   gameEventTables:
-  - NID: 0
-    CardID: 0
-    EventName: 
+  - NID: 1
+    CardID: 1
+    EventName: "\u7238\u7238\u548C\u5ABD\u5ABD\u90FD\u60F3\u8981\u5BB6\u88E1\u6709\u500B\u4F11\u606F\u7684\u5730\u65B9"
+    ChooseID1: 0
+    ChooseID2: 0
+    ChooseID3: 0
+  - NID: 2
+    CardID: 1
+    EventName: "\u5ABD\u5ABD\uFF1A\u60F3\u8981\u5927\u5BB6\u80FD\u4E00\u8D77\u5403\u98EF"
     ChooseID1: 0
     ChooseID2: 0
     ChooseID3: 0

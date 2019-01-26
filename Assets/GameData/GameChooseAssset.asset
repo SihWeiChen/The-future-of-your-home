@@ -13,8 +13,13 @@ MonoBehaviour:
   m_Name: GameChooseAssset
   m_EditorClassIdentifier: 
   chooseTablesList:
-  - NID: 0
-    ChooseName: 
+  - NID: 1
+    ChooseName: qwe
+    ChangeQuality: 0
+    ChangeFeel: 0
+    ChangeMoney: 0
+  - NID: 2
+    ChooseName: qweqwe
     ChangeQuality: 0
     ChangeFeel: 0
     ChangeMoney: 0

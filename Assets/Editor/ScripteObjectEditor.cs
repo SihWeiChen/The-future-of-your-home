@@ -38,7 +38,9 @@ public class ScripteObjectEditor : EditorWindow
         {
             eventList = ScriptableObject.CreateInstance<GameEventList>();
             eventList.gameEventTables = new List<GameEventTableData>();
-            eventList.gameEventTables.Add(new GameEventTableData());
+            GameEventTableData newData = new GameEventTableData();
+            newData.NID = eventList.gameEventTables.Count;
+            eventList.gameEventTables.Add(newData);
             AssetDatabase.CreateAsset(eventList, path);
            //AssetDatabase.SaveAssets();
         }
@@ -47,21 +49,26 @@ public class ScripteObjectEditor : EditorWindow
         if (GUILayout.Button("Create Choose"))
         {
             eventList2 = ScriptableObject.CreateInstance<GameChooseList>();
-            List<GameChooseTableData> eventTables = new List<GameChooseTableData>();
-            eventTables.Add(new GameChooseTableData());
-            eventList2.chooseTablesList = eventTables;
+            eventList2.chooseTablesList = new List<GameChooseTableData>();
+            GameChooseTableData newData = new GameChooseTableData();
+            newData.NID = eventList2.chooseTablesList.Count;
+            eventList2.chooseTablesList.Add(newData);
             AssetDatabase.CreateAsset(eventList2, path2);
             AssetDatabase.SaveAssets();
         }
 
         if (GUILayout.Button("Add event"))
         {
-            eventList.gameEventTables.Add(new GameEventTableData());
+            GameEventTableData newData = new GameEventTableData();
+            newData.NID = eventList2.chooseTablesList.Count;
+            eventList.gameEventTables.Add(newData);
             EditorUtility.SetDirty(eventList);
         }
         if (GUILayout.Button("Add choose"))
         {
-            eventList2.chooseTablesList.Add(new GameChooseTableData());
+            GameChooseTableData newData = new GameChooseTableData();
+            newData.NID = eventList2.chooseTablesList.Count;
+            eventList2.chooseTablesList.Add(newData);
             EditorUtility.SetDirty(eventList2);
         }
         if (GUILayout.Button("Save"))
