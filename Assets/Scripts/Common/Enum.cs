@@ -28,7 +28,22 @@ namespace Common
         public List<int> openEvent;
     }
 
+    public enum IO_STATE
+    {
+        None = 0,
+        SelectCharacter,
+        InGame,
+    }
 
-
-
+    public enum IO_Command
+    {
+        A = 0,
+        B,
+        C,
+        D,
+        Up,
+        Down,
+        Left,
+        Right, 
+    }
 }
