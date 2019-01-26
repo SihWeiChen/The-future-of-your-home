@@ -71,8 +71,15 @@ public class GameLogic : MonoBehaviour
         if (GetGameData().startGame == true)
         {
             GetGameData().startGame = false;
-            SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
+
+            GetUIManager().StartCDTimer();
+            //SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
         }
+    }
+
+    public void LoadingGame()
+    {
+        SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
     }
 
     #region Proxy & Mediator
