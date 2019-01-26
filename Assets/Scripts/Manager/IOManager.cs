@@ -13,6 +13,13 @@ namespace Mamager
 
         void Update()
         {
+            //string[] sAryJoystickName = Input.GetJoystickNames();
+
+            //for (int i = 0; i < sAryJoystickName.Length; i++)
+            //{
+            //    Debug.Log("JoystickName["+i+"]:" + sAryJoystickName[i]);
+            //}
+
             //if (Input.GetKeyDown(KeyCode.JoystickButton0))
             //    Debug.Log(string.Format("JoystickButton - 0"));
 
@@ -26,7 +33,7 @@ namespace Mamager
             //    Debug.Log(string.Format("JoystickButton - 3"));
 
             //if (Input.GetKeyDown(KeyCode.JoystickButton4))
-                //Debug.Log(string.Format("JoystickButton - 4"));
+            //Debug.Log(string.Format("JoystickButton - 4"));
 
             if (Input.GetButtonDown("P1_Up"))
                 Debug.Log(string.Format("P1_Up"));
@@ -51,6 +58,8 @@ namespace Mamager
 
             if (Input.GetButtonDown("P2_Right"))
                 Debug.Log(string.Format("P2_Right"));
+
+
             //float fX11 = Input.GetAxis("Horizontal");
             //float fY11 = Input.GetAxis("Vertical");
 
