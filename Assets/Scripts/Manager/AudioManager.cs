@@ -12,6 +12,7 @@ namespace Manager
             Mother,
             Daughter,
             Son,
+            BGM,
         }
 
         Transform m_tranAudioManager;
@@ -20,6 +21,7 @@ namespace Manager
         AudioSource m_audio_mother;
         AudioSource m_audio_daughter;
         AudioSource m_audio_son;
+        AudioSource m_audio_bgm;
 
         public AudioManager()
         {}
@@ -32,6 +34,9 @@ namespace Manager
             m_audio_mother = m_tranAudioManager.transform.Find("aud_mother").GetComponent<AudioSource>();
             m_audio_daughter = m_tranAudioManager.transform.Find("aud_daughter").GetComponent<AudioSource>();
             m_audio_son = m_tranAudioManager.transform.Find("aud_son").GetComponent<AudioSource>();
+            m_audio_bgm = m_tranAudioManager.transform.Find("aud_bgm01").GetComponent<AudioSource>();
+
+            Play(AUDIO_TYPE.BGM);
         }
 
         public void Start()
@@ -68,6 +73,10 @@ namespace Manager
                 case AUDIO_TYPE.Son:
                     m_audio_son.Stop();
                     m_audio_son.Play();
+                    break;
+                case AUDIO_TYPE.BGM:
+                    m_audio_bgm.Stop();
+                    m_audio_bgm.Play();
                     break;
                 default:
                     break;
