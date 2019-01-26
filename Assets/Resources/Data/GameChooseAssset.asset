@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c98626674c2f49209d5f3b282145a1b, type: 3}
   m_Name: GameChooseAssset
   m_EditorClassIdentifier: 
-  chooseTablesList: []
+  chooseTablesList:
+  - NID: 0
+    ChooseName: 
+    ChangeQuality: 0
+    ChangeFeel: 0
+    ChangeMoney: 0
