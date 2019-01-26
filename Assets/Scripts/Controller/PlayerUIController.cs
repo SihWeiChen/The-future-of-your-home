@@ -45,7 +45,7 @@ namespace Controller
 
         bool m_bChangeScene;
         float m_fChangeSceneClock;
-        const float m_fChangeSceneTime = 3.0f;
+        const float m_fChangeSceneTime = 5.0f;
 
         private void Awake()
         {
