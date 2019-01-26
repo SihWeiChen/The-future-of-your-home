@@ -8,15 +8,21 @@ namespace Controller
     public class PlayerController : MonoBehaviour
     {
         public int m_playerID;
+        public int m_selectID;
         public Image m_ActorIMG;
 
         public Image m_Item1;
         public Image m_Item2;
         public Image m_Item3;
+
+        public Image m_Select1;
+        public Image m_Select2;
+        public Image m_Select3;
         // Start is called before the first frame update
         void Start()
         {
             GameLogic.GetInstance.GetGamePlayerManager().Regist(GamePlayManager.RegistType.PlayerController, this);
+            SelectItem(0);
         }
 
         // Update is called once per frame
@@ -48,5 +54,27 @@ namespace Controller
             m_Item3.sprite = SpriteManager.GetInstance().GetItemSprite(item3);
         }
 
+        public void SelectItem(int index)
+        {
+            m_selectID = index;
+            switch (index)
+            {
+                case 0:
+                    m_Select1.enabled = true;
+                    m_Select2.enabled = false;
+                    m_Select3.enabled = false;
+                    break;
+                case 1:
+                    m_Select1.enabled = false;
+                    m_Select3.enabled = false;
+                    m_Select2.enabled = true;
+                    break;
+                case 2:
+                    m_Select3.enabled = true;
+                    m_Select1.enabled = false;
+                    m_Select2.enabled = false;
+                    break;
+            }
+        }
     }
 }
