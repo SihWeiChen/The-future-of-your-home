@@ -15,7 +15,11 @@ public class QuestionController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.V))
+        {
+            int eventID = Random.Range(0, 21);
+            SetQuestionString(TableData.Init.GetEventTableData(eventID).EventName);
+        }
     }
 
     public void SetQuestionString(string value)

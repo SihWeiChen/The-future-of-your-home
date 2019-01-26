@@ -1128,7 +1128,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Q:\u7238\u7238\u548C\u5ABD\u5ABD\u90FD\u60F3\u8981\u5BB6\u88E1\u6709\u500B\u4F11\u606F\u7684\u5730\u65B9"
+  m_Text: "\u7238\u7238\u548C\u5ABD\u5ABD\u90FD\u60F3\u8981\u5BB6\u88E1\u6709\u500B\u4F11\u606F\u7684\u5730\u65B9"
 --- !u!222 &1628598236
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1149,7 +1149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2272a25c305b5c4e83702a932746024, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Question: {fileID: 0}
+  m_Question: {fileID: 1628598235}
 --- !u!1 &1680653112
 GameObject:
   m_ObjectHideFlags: 0
