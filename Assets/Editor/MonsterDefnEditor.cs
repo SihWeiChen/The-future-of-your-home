@@ -42,7 +42,7 @@ public class MonsterDefnEditor : EditorWindow
             AssetDatabase.CreateAsset(eventList2, path2);
             AssetDatabase.SaveAssets();
         }
-        if (GUI.changed)
+        if (GUILayout.Button("Save"))
         {
             EditorUtility.SetDirty(eventList);
             EditorUtility.SetDirty(eventList2);
