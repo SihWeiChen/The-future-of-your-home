@@ -12,7 +12,8 @@ namespace Manager
             Mother,
             Daughter,
             Son,
-            BGM,
+            BGM001,
+            Click001,
         }
 
         Transform m_tranAudioManager;
@@ -21,7 +22,8 @@ namespace Manager
         AudioSource m_audio_mother;
         AudioSource m_audio_daughter;
         AudioSource m_audio_son;
-        AudioSource m_audio_bgm;
+        AudioSource m_audio_bgm001;
+        AudioSource m_audio_click001;
 
         public AudioManager()
         {}
@@ -34,9 +36,10 @@ namespace Manager
             m_audio_mother = m_tranAudioManager.transform.Find("aud_mother").GetComponent<AudioSource>();
             m_audio_daughter = m_tranAudioManager.transform.Find("aud_daughter").GetComponent<AudioSource>();
             m_audio_son = m_tranAudioManager.transform.Find("aud_son").GetComponent<AudioSource>();
-            m_audio_bgm = m_tranAudioManager.transform.Find("aud_bgm01").GetComponent<AudioSource>();
+            m_audio_bgm001 = m_tranAudioManager.transform.Find("aud_bgm01").GetComponent<AudioSource>();
+            m_audio_click001 = m_tranAudioManager.transform.Find("aud_click001").GetComponent<AudioSource>();
 
-            Play(AUDIO_TYPE.BGM);
+            Play(AUDIO_TYPE.BGM001);
         }
 
         public void Start()
@@ -74,9 +77,13 @@ namespace Manager
                     m_audio_son.Stop();
                     m_audio_son.Play();
                     break;
-                case AUDIO_TYPE.BGM:
-                    m_audio_bgm.Stop();
-                    m_audio_bgm.Play();
+                case AUDIO_TYPE.BGM001:
+                    m_audio_bgm001.Stop();
+                    m_audio_bgm001.Play();
+                    break;
+                case AUDIO_TYPE.Click001:
+                    m_audio_click001.Stop();
+                    m_audio_click001.Play();
                     break;
                 default:
                     break;

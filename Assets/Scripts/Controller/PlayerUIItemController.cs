@@ -51,6 +51,8 @@ namespace Controller
 
         public void DetermineCharacter()
         {
+            GameLogic.GetInstance.PlayAudio(Manager.AudioManager.AUDIO_TYPE.Click001);
+
             Color colBG = new Color(0.25f, 0.25f, 0.25f, 0.25f);
             Color colIcon = new Color(0.45f, 0.45f, 0.45f, 1.0f);
             m_imgCharacterBG.color = colBG;
