@@ -2,12 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChooseTableList : ScriptableObject
-{
-    public List<ChooseTable> chooseTableList;
-}
 [System.Serializable]
-public class ChooseTable
+public class GameChooseTableData
 {
     /// <summary>
     /// NID
@@ -30,3 +26,4 @@ public class ChooseTable
     /// </summary>
     public int ChangeMoney;
 }
+
