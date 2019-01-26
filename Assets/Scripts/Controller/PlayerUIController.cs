@@ -26,6 +26,8 @@ namespace Controller
         [SerializeField] Image m_imgLoadingBG;
         [SerializeField] TextMeshProUGUI m_tmpLoading;
 
+        [SerializeField] Animation[] m_animCharacterScale;
+
         const int m_iTimes = 5;
         int m_iCurTimes;
 
@@ -53,6 +55,7 @@ namespace Controller
         {
             Init();
             GameLogic.GetInstance.GetUIManager().Regist(Manager.UIManager.UI_REGIST_TYPE.PlayerUIController, this);
+            PlayAnimCharacterSacle();
         }
 
         public void Init()
@@ -236,6 +239,19 @@ namespace Controller
         public void StartCDTimer()
         {
             PlayLoading();
+        }
+
+        void PlayAnimCharacterSacle()
+        {
+            for (int i = 0; i < m_animCharacterScale.Length; i++)
+            {
+                if (m_animCharacterScale[i].isPlaying == false)
+                {
+                    m_animCharacterScale[i].Play();
+                    Invoke("PlayAnimCharacterSacle", 0.5f);
+                    return;
+                }
+            }
         }
     }
 }
