@@ -84,18 +84,23 @@ public class GamePlayManager
         playerList[PlayerID].ChangeItem(item1, item2, item3);
     }
 
+    public void SetPlayerSelect(int PlayerID, int selectIndex)
+    {
+        playerList[PlayerID].SelectItem(selectIndex);
+    }
+
     public void PlayerCommand(int v_playerID, IO_Command r_ioCommand)
     {
         PlayerController player = playerList[v_playerID];
         switch(r_ioCommand)
         {
             case IO_Command.Left:
-
-                //break;
+                SetPlayerSelect(v_playerID, 0);
+                break;
 
             case IO_Command.Right:
-
-                //break;
+                SetPlayerSelect(v_playerID, 1);
+                break;
 
             case IO_Command.A:
             case IO_Command.B:
