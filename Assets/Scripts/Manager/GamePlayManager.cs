@@ -16,7 +16,7 @@ public class GamePlayManager
     }
 
     List<PlayerController> playerList = new List<PlayerController>();
-    List<int> stateList = new List<int>();
+    StateController stateList = new StateController();
 
     List<int> itemSelectList = new List<int>();
     QuestionController question;
@@ -26,22 +26,32 @@ public class GamePlayManager
     }
     public void Start()
     {
-        PlayerUIData[] data = GameLogic.GetInstance.GetGameData().playerUIDatas;
-        for(int i = 0; i < data.Length; i++)
-        {
-            ActorDef actor = (ActorDef)data[i].uiPos;
-            SetPlayerIcon(i, actor);
-        }
     }
 
     public void Awake()
     {
 
     }
-
+    bool bFirst = false;
     public void Update()
     {
+        if(bFirst == false)
+        {
+            try
+            {
+                PlayerUIData[] data = GameLogic.GetInstance.GetGameData().playerUIDatas;
+                for (int i = 0; i < data.Length; i++)
+                {
+                    ActorDef actor = (ActorDef)data[i].uiPos;
+                    SetPlayerIcon(i, actor);
+                }
+                bFirst = true;
+            }
+            catch
+            {
 
+            }
+        }
     }
 
     public void Regist(RegistType v_type, object r_object)
@@ -49,10 +59,10 @@ public class GamePlayManager
         switch (v_type)
         {
             case RegistType.PlayerController:
-                playerList = (List<PlayerController>)r_object;
+                playerList.Add((PlayerController)r_object);
                 break;
             case RegistType.StateController:
-                stateList = (List<int>)r_object;
+                stateList = (StateController)r_object;
                 break;
             case RegistType.QuestionController:
                 question = (QuestionController)r_object;
@@ -63,6 +73,9 @@ public class GamePlayManager
 
     public void SetPlayerIcon(int PlayerID, Common.ActorDef actor)
     {
+        Debug.Log("playerList" + playerList.Count);
+        Debug.Log("PlayerID" + PlayerID);
+        Debug.Log("actor" + actor.ToString());
         playerList[PlayerID].ChangeActor(actor);
     }
 

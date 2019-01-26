@@ -19,8 +19,9 @@ namespace Controller
         public Image m_Select2;
         public Image m_Select3;
         // Start is called before the first frame update
-        void Start()
+        void Awake()
         {
+            Debug.Log("playercontroller");
             GameLogic.GetInstance.GetGamePlayerManager().Regist(GamePlayManager.RegistType.PlayerController, this);
             SelectItem(0);
         }
