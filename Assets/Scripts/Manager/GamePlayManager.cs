@@ -157,11 +157,34 @@ public class GamePlayManager
     }
     QuestionState m_questionState = QuestionState.Demo;
 
+
     public enum QuestionEndID
     {
         Demo = 0,
         Creator = 20,
         Develop = 39,
         Fight = 60,
+    }
+
+    public string GetQuestionString()
+    {
+        int questionID = 0;
+        string eventName = "";
+        switch(m_questionState)
+        {
+            case QuestionState.Demo:
+                questionID = 0;
+                break;
+            case QuestionState.Creator:
+                questionID = Random.Range((int)QuestionState.Creator, (int)QuestionEndID.Creator);
+                break;
+            case QuestionState.Develop:
+                questionID = Random.Range((int)QuestionState.Develop, (int)QuestionEndID.Develop);
+                break;
+            case QuestionState.Fight:
+                questionID = Random.Range((int)QuestionState.Fight, (int)QuestionEndID.Fight);
+                break;
+        }
+        return TableData.Init.GetEventTableData(questionID).EventName;
     }
 }
