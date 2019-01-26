@@ -4,6 +4,7 @@ using UnityEngine;
 
 using Controller;
 using Common;
+using Data;
 
 public class GamePlayManager
 {
@@ -24,7 +25,12 @@ public class GamePlayManager
     }
     public void Start()
     {
-
+        PlayerUIData[] data = GameLogic.GetInstance.GetGameData().playerUIDatas;
+        for(int i = 0; i < data.Length; i++)
+        {
+            ActorDef actor = (ActorDef)data[i].uiPos;
+            SetPlayerIcon(i, actor);
+        }
     }
     public void Awake()
     {
