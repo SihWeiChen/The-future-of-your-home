@@ -54,6 +54,7 @@ public class GamePlayManager : IPlayerEvent
                     ActorDef actor = (ActorDef)data[i].uiPos;
                     SetPlayerIcon(i, actor);
                 }
+                SetQuestion(GetQuestionID());
                 bFirst = false;
             }
 
@@ -63,6 +64,8 @@ public class GamePlayManager : IPlayerEvent
                     bool allSelect = true;
                     foreach(PlayerController player in playerList)
                     {
+                        if (player.m_playerID >= GameLogic.GetInstance.GetGameData().playerCount)
+                            continue;
                         if (player.bSelected == false)
                         {
                             allSelect = false;
@@ -70,15 +73,35 @@ public class GamePlayManager : IPlayerEvent
                         }
                     }
                     if (allSelect == true)
+                    {
                         m_chooseState = ChooseState.End;
+                    }
+                    Debug.Log("ChooseState.WaitOther");
                     break;
 
                 case ChooseState.End:
 
+                    int answer = 1;
+
+                    int life = TableData.Init.GetChooseTableData(answer).ChangeFeel;
+                    int quality = TableData.Init.GetChooseTableData(answer).ChangeQuality;
+                    int money = TableData.Init.GetChooseTableData(answer).ChangeMoney;
+
+                    stateList.SetLife(life);
+                    stateList.SetMoney(money);
+                    stateList.SetQuality(quality);
+
+                    m_questionState = (QuestionState) TableData.Init.GetChooseTableData(answer).OpenEventNID;
+
+                    foreach(PlayerController player in playerList)
+                    {
+                        player.bSelected = false;
+                    }
+
+                    SetQuestion(GetQuestionID());
+                    Debug.Log("ChooseState.End");
                     break;
             }
-
-
         }
     }
 
@@ -91,6 +114,11 @@ public class GamePlayManager : IPlayerEvent
                 break;
             case RegistType.StateController:
                 stateList = (StateController)r_object;
+
+                stateList.SetLife(GameSetting.Life);
+                stateList.SetMoney(GameSetting.Money);
+                stateList.SetQuality(GameSetting.Quality);
+
                 break;
             case RegistType.QuestionController:
                 question = (QuestionController)r_object;
@@ -98,7 +126,19 @@ public class GamePlayManager : IPlayerEvent
         }
     }
 
-
+    public void SetStateValue(Param_STATE state, int value)
+    {
+        switch(state)
+        {
+            case Param_STATE.Life:
+                break;
+            case Param_STATE.Money:
+                break;
+            case Param_STATE.Quality:
+                break;
+        }
+    }
+    
     public void SetPlayerIcon(int PlayerID, Common.ActorDef actor)
     {
         Debug.Log("playerList" + playerList.Count);
@@ -107,14 +147,10 @@ public class GamePlayManager : IPlayerEvent
         playerList[PlayerID].ChangeActor(actor);
     }
 
-    public void SetPlayerItem(int PlayerID, Common.EventItem item1, Common.EventItem item2, Common.EventItem item3)
-    {
-        playerList[PlayerID].ChangeItem(item1, item2, item3);
-    }
-
     public void SetPlayerSelect(int PlayerID, int selectIndex)
     {
         playerList[PlayerID].SelectItem(selectIndex);
+        playerList[PlayerID].bSelected = true;
     }
 
     public void PlayerIOCommand(int v_playerID, IO_Command r_ioCommand)
@@ -137,14 +173,42 @@ public class GamePlayManager : IPlayerEvent
             case IO_Command.C:
             case IO_Command.D:
                 SetPlayerSelect(v_playerID, 2);
-                SetQuestion(Random.Range(0, 21));
+                //SetQuestion(Random.Range(0, 21));
                 break;
         }
     }
 
     public void SetQuestion(int eventID)
     {
-        question.SetQuestionString(TableData.Init.GetEventTableData(eventID).EventName, "123", "456", "789");
+        Debug.Log("SetQuestion eventID: " + eventID);
+        if(eventID == 0)
+        {
+            Debug.LogError("Error");
+            eventID = 1;
+        }
+        GameEventTableData data = TableData.Init.GetEventTableData(eventID);
+        Debug.Log("SetQuestion ChooseID1: " + data.ChooseID1);
+        if (data.ChooseID1 == 0)
+        {
+            Debug.LogError("Error1");
+            data.ChooseID1 = 1;
+        }
+        string choose1 = TableData.Init.GetChooseTableData(data.ChooseID1).ChooseName;
+        Debug.Log("SetQuestion ChooseID2: " + data.ChooseID2);
+        if (data.ChooseID2 == 0)
+        {
+            Debug.LogError("Error2");
+            data.ChooseID2 = 1;
+        }
+        string choose2 = TableData.Init.GetChooseTableData(data.ChooseID2).ChooseName;
+        Debug.Log("SetQuestion ChooseID3: " + data.ChooseID3);
+        if (data.ChooseID3 == 0)
+        {
+            Debug.LogError("Error3");
+            data.ChooseID3 = 1;
+        }
+        string choose3 = TableData.Init.GetChooseTableData(data.ChooseID3).ChooseName;
+        question.SetQuestionString(data.EventName, choose1, choose2, choose3);
     }
 
     public enum QuestionState
@@ -153,6 +217,7 @@ public class GamePlayManager : IPlayerEvent
         Creator = 1,
         Develop = 2,
         Fight = 3,
+        All = 4,
     }
     QuestionState m_questionState = QuestionState.Demo;
 
@@ -165,25 +230,35 @@ public class GamePlayManager : IPlayerEvent
         Fight = 60,
     }
 
-    public string GetQuestionString()
+    public enum QuestionPrioity
+    {
+        Dad = 0,
+        Mom = 1,
+        Daughter = 2,
+        Son = 3,
+    }
+
+    public int GetQuestionID()
     {
         int questionID = 0;
-        string eventName = "";
         switch(m_questionState)
         {
             case QuestionState.Demo:
                 questionID = 0;
                 break;
             case QuestionState.Creator:
-                questionID = Random.Range((int)QuestionState.Creator, (int)QuestionEndID.Creator);
+                questionID = Random.Range((int)QuestionEndID.Demo, (int)QuestionEndID.Creator)+1;
                 break;
             case QuestionState.Develop:
-                questionID = Random.Range((int)QuestionState.Develop, (int)QuestionEndID.Develop);
+                questionID = Random.Range((int)QuestionEndID.Creator, (int)QuestionEndID.Develop)+1;
                 break;
             case QuestionState.Fight:
-                questionID = Random.Range((int)QuestionState.Fight, (int)QuestionEndID.Fight);
+                questionID = Random.Range((int)QuestionEndID.Develop, (int)QuestionEndID.Fight)+1;
+                break;
+            default:
+                questionID = Random.Range((int)QuestionEndID.Demo, (int)QuestionEndID.Fight)+1;
                 break;
         }
-        return TableData.Init.GetEventTableData(questionID).EventName;
+        return questionID;
     }
 }

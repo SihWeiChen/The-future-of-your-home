@@ -7,6 +7,9 @@ namespace Common
     public class GameSetting
     {
         public static int PLAYER_MAXIMUM = 4;
+        public static int Money = 50;
+        public static int Quality = 50;
+        public static int Life = 50;
     }
 
     public enum ActorDef
@@ -35,13 +38,11 @@ namespace Common
         }
     }
 
-
-    public enum EventItem
+    public enum Param_STATE
     {
-        Car = 0,
-        Book = 1,
-        Hat = 2,
-        PS4 = 3,
+        Life,
+        Quality,
+        Money,
     }
 
     public enum IO_STATE

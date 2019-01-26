@@ -10,9 +10,9 @@ public class StateController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_bars_Q.aaa(0);
-        m_bars_L.aaa(0);
-        m_bars_M.aaa(0);
+        m_bars_Q.SetValue(0);
+        m_bars_L.SetValue(0);
+        m_bars_M.SetValue(0);
 
         GameLogic.GetInstance.GetGamePlayerManager().Regist(GamePlayManager.RegistType.StateController, this);
     }
@@ -21,19 +21,20 @@ public class StateController : MonoBehaviour
     void Update()
     {
     }
+
     public void SetQuality(float value)
     {
-        m_bars_Q.aaa(value);
+        m_bars_Q.SetValue(value);
     }
 
     public void SetLife(float value)
     {
-        m_bars_L.aaa(value);
+        m_bars_L.SetValue(value);
     }
 
     public void SetMoney(float value)
     {
-        m_bars_M.aaa(value);
+        m_bars_M.SetValue(value);
     }
 
 }

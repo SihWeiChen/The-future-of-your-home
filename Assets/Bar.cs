@@ -14,10 +14,10 @@ public class Bar : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q))
-            aaa(50);       
+            SetValue(50);       
     }
     //0~100
-    public void aaa(float b)
+    public void SetValue(float b)
     {
         Bar_1.size = new Vector2(0.034f*b, 0.25f); 
     }
