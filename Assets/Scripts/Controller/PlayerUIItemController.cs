@@ -9,6 +9,8 @@ namespace Controller
     {
         [SerializeField] Image[] m_imgNumBGs;
         [SerializeField] Text[] m_txtNumTexts;
+        [SerializeField] Image m_imgCharacterBG;
+        [SerializeField] Image m_imgCharacterIcon;
 
         void Start()
         {
@@ -19,7 +21,6 @@ namespace Controller
         {
             for (int i = 0; i < m_imgNumBGs.Length; i++)
                 HideSign(i);
-
         }
 
         void Update()
@@ -46,6 +47,14 @@ namespace Controller
                 m_imgNumBGs[i].enabled = false;
                 m_txtNumTexts[i].enabled = false;
             }
+        }
+
+        public void DetermineCharacter()
+        {
+            Color colBG = new Color(0.25f, 0.25f, 0.25f, 0.25f);
+            Color colIcon = new Color(0.45f, 0.45f, 0.45f, 1.0f);
+            m_imgCharacterBG.color = colBG;
+            m_imgCharacterIcon.color = colIcon;
         }
     }
 }

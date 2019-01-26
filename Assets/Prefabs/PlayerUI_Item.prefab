@@ -798,6 +798,8 @@ MonoBehaviour:
   - {fileID: 4627055189133044029}
   - {fileID: 2946027200359611505}
   - {fileID: 7399714108365618233}
+  m_imgCharacterBG: {fileID: 8497444557585988023}
+  m_imgCharacterIcon: {fileID: 868381506952376092}
 --- !u!114 &5593270050635743220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -899,7 +901,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -973,7 +975,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.21568628}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
