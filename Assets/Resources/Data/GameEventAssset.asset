@@ -12,4 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73f479de3d1054356801ba756ef9a444, type: 3}
   m_Name: GameEventAssset
   m_EditorClassIdentifier: 
-  gameEventTables: []
+  gameEventTables:
+  - NID: 0
+    CardID: 0
+    EventName: 2
+    ChooseID1: 0
+    ChooseID2: 0
+    ChooseID3: 0
+  - NID: 0
+    CardID: 0
+    EventName: 22
+    ChooseID1: 0
+    ChooseID2: 0
+    ChooseID3: 0
+  - NID: 0
+    CardID: 0
+    EventName: 2222
+    ChooseID1: 0
+    ChooseID2: 0
+    ChooseID3: 0
