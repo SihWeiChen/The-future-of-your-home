@@ -10,6 +10,7 @@ namespace Common
         public static int Money = 50;
         public static int Quality = 50;
         public static int Life = 50;
+        public static int ChooseCount = 10;
     }
 
     public enum ActorDef

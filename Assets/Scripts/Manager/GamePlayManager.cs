@@ -18,6 +18,7 @@ public class GamePlayManager : IPlayerEvent
     {
         WaitOther,
         End,
+        GameOver,
     }
     ChooseState m_chooseState = ChooseState.WaitOther;
 
@@ -89,15 +90,19 @@ public class GamePlayManager : IPlayerEvent
                     int answer = 1;
 
                     int life = TableData.Init.GetChooseTableData(answer).ChangeFeel;
-                    int quality = TableData.Init.GetChooseTableData(answer).ChangeQuality;
                     int money = TableData.Init.GetChooseTableData(answer).ChangeMoney;
+                    int quality = TableData.Init.GetChooseTableData(answer).ChangeQuality;
 
                     Debug.Log("life: " + life);
                     Debug.Log("money: " + money);
                     Debug.Log("quality: " + quality);
-                    stateList.SetLife(life);
-                    stateList.SetMoney(money);
-                    stateList.SetQuality(quality);
+                    GameSetting.Life += life;
+                    GameSetting.Money += money;
+                    GameSetting.Quality += quality;
+                    stateList.SetLife(GameSetting.Life);
+                    stateList.SetMoney(GameSetting.Money);
+                    stateList.SetQuality(GameSetting.Quality);
+
 
                     m_questionState = (QuestionState) TableData.Init.GetChooseTableData(answer).OpenEventNID;
                     m_questionState = QuestionState.Develop;
@@ -106,10 +111,17 @@ public class GamePlayManager : IPlayerEvent
                     {
                         player.bSelected = false;
                     }
-
+                    GameSetting.ChooseCount--;
                     SetQuestion(GetQuestionID());
-                    m_chooseState = ChooseState.WaitOther;
+                    ResetPlayerSelect();
+                    if (CheckIsOver() == false)
+                        m_chooseState = ChooseState.WaitOther;
+                    else
+                        m_chooseState = ChooseState.GameOver;
                     Debug.Log("ChooseState.End");
+                    break;
+                case ChooseState.GameOver:
+                    Debug.LogError("Game Over!!!");
                     break;
             }
         }
@@ -148,7 +160,27 @@ public class GamePlayManager : IPlayerEvent
                 break;
         }
     }
-    
+
+    bool CheckIsOver()
+    {
+        if (GameSetting.Life <= 0)
+            return true;
+        if (GameSetting.Life >= 100)
+            return true;
+        if (GameSetting.Quality <= 0)
+            return true;
+        if (GameSetting.Quality >= 100)
+            return true;
+        if (GameSetting.Money <= 0)
+            return true;
+        if (GameSetting.Money >= 100)
+            return true;
+        if (GameSetting.ChooseCount <= 0)
+            return true;
+        return false;
+    }
+
+
     public void SetPlayerIcon(int PlayerID, Common.ActorDef actor)
     {
         Debug.Log("playerList" + playerList.Count);
@@ -165,7 +197,12 @@ public class GamePlayManager : IPlayerEvent
     public void SetPlayerSelect(int PlayerID, int selectIndex)
     {
         playerList[PlayerID].SelectItem(selectIndex);
-        playerList[PlayerID].bSelected = true;
+    }
+
+    void ResetPlayerSelect()
+    {
+        for (int i = 0; i < playerList.Count; i++)
+            playerList[i].SelectItem(-1);
     }
 
     public void PlayerIOCommand(int v_playerID, IO_Command r_ioCommand)
