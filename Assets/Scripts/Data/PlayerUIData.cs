@@ -17,7 +17,22 @@ namespace Data
         {
             get { return m_iUIPos; }
             set 
-            { 
+            {
+                if (m_iUIPos != -1)
+                {
+                    if (value == 0)
+                        GameLogic.GetInstance.PlayAudio(Manager.AudioManager.AUDIO_TYPE.Father);
+
+                    if (value == 1)
+                        GameLogic.GetInstance.PlayAudio(Manager.AudioManager.AUDIO_TYPE.Mother);
+
+                    if (value == 2)
+                        GameLogic.GetInstance.PlayAudio(Manager.AudioManager.AUDIO_TYPE.Daughter);
+
+                    if (value == 3)
+                        GameLogic.GetInstance.PlayAudio(Manager.AudioManager.AUDIO_TYPE.Son);
+                }
+
                 m_iUIPos = value;
 
                 if (m_iUIPos > 3)

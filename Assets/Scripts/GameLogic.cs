@@ -89,6 +89,11 @@ public class GameLogic : MonoBehaviour
         GetGameData().ioState = Common.IO_STATE.InGame;
     }
 
+    public void PlayAudio(AudioManager.AUDIO_TYPE r_audioType)
+    {
+        m_clsAudioManager.Play(r_audioType);
+    }
+
     #region Proxy & Mediator
     public GameData GetGameData()
     {
@@ -104,6 +109,5 @@ public class GameLogic : MonoBehaviour
     {
         return m_clsGamePlayerManager;
     }
-
     #endregion
 }

@@ -9,6 +9,9 @@ namespace Manager
         public enum AUDIO_TYPE
         {
             Father = 0,
+            Mother,
+            Daughter,
+            Son,
         }
 
         Transform m_tranAudioManager;
@@ -43,7 +46,7 @@ namespace Manager
 
         public void Update()
         {
-         
+
         }
 
         public void Play(AUDIO_TYPE r_audioType)
@@ -53,6 +56,18 @@ namespace Manager
                 case AUDIO_TYPE.Father:
                     m_audio_father.Stop();
                     m_audio_father.Play();
+                    break;
+                case AUDIO_TYPE.Mother:
+                    m_audio_mother.Stop();
+                    m_audio_mother.Play();
+                    break;
+                case AUDIO_TYPE.Daughter:
+                    m_audio_daughter.Stop();
+                    m_audio_daughter.Play();
+                    break;
+                case AUDIO_TYPE.Son:
+                    m_audio_son.Stop();
+                    m_audio_son.Play();
                     break;
                 default:
                     break;
