@@ -99,8 +99,6 @@ namespace Manager
             float fP2_H = Input.GetAxis("P2_Horizontal") * Time.deltaTime * 10.0f;
             float fP2_V = Input.GetAxis("P2_Vertical") * Time.deltaTime * 10.0f;
 
-            Debug.Log("fP2_H: " + fP2_H);
-
             if (fP2_H == 0)
             {
                 m_bPressRight_P2 = false;

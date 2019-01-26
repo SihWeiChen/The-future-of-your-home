@@ -3,13 +3,46 @@ using System.Collections.Generic;
 using UnityEngine;
 using Common;
 using Data;
+using TMPro;
+using UnityEngine.UI;
 
 namespace Controller
 { 
     public class PlayerUIController : MonoBehaviour
     {
-        [SerializeField] PlayerUIItemController[] m_playerUIItemController;
+        enum LOADING_STATE
+        {
+            None = 0,
+            Loading01,
+            Loading02,
+            Loading03,
+            Loading04,
+            Loading05,
+        }
 
+        [SerializeField] PlayerUIItemController[] m_playerUIItemController;
+        [SerializeField] TextMeshProUGUI m_tmpCDTimer;
+        [SerializeField] Animation m_animCDTimer;
+        [SerializeField] Image m_imgLoadingBG;
+        [SerializeField] TextMeshProUGUI m_tmpLoading;
+
+        const int m_iTimes = 5;
+        int m_iCurTimes;
+
+        bool m_bStartCountDown;
+        float m_fCountDownClock;
+        float m_fCountDownTime = 1.0f;
+
+        LOADING_STATE m_eCurLoadingState;
+        LOADING_STATE m_eNextLoadingState;
+
+        bool m_bStartLoading;
+        float m_fStartLoadingClock;
+        const float m_fStartLoadingTime = 0.15f;
+
+        bool m_bChangeScene;
+        float m_fChangeSceneClock;
+        const float m_fChangeSceneTime = 3.0f;
 
         private void Awake()
         {
@@ -27,13 +60,107 @@ namespace Controller
             for (int i = 0; i < m_playerUIItemController.Length; i++)
                 m_playerUIItemController[i].Init();
 
-            InitSettingPlayerIDData();
+            m_eCurLoadingState = LOADING_STATE.None;
+            m_eNextLoadingState = m_eCurLoadingState;
+            m_imgLoadingBG.enabled = false;
+            m_tmpLoading.enabled = false;
 
+            m_bStartLoading = false;
+            m_fStartLoadingClock = 0.0f;
+
+            m_bChangeScene = false;
+            m_fChangeSceneClock = 0.0f;
+
+            m_tmpCDTimer.enabled = false;
+            m_bStartCountDown = false;
+            m_fCountDownClock = 0.0f;
+            m_iCurTimes = m_iTimes;
+            InitSettingPlayerIDData();
         }
 
         public void Update()
         {
+            if (m_bStartCountDown)
+            {
+                m_fCountDownClock += Time.deltaTime;
+                if (m_fCountDownClock >= m_fCountDownTime)
+                    StartCDTimer();
+            }
 
+            DetectLoadingText();
+
+            if (m_bStartLoading)
+            {
+                m_fStartLoadingClock += Time.deltaTime;
+                if (m_fStartLoadingClock >= m_fStartLoadingTime)
+                {
+                    switch (m_eCurLoadingState)
+                    {
+                        case LOADING_STATE.Loading01:
+                            m_eNextLoadingState = LOADING_STATE.Loading02;
+                            break;
+                        case LOADING_STATE.Loading02:
+                            m_eNextLoadingState = LOADING_STATE.Loading03;
+                            break;
+                        case LOADING_STATE.Loading03:
+                            m_eNextLoadingState = LOADING_STATE.Loading04;
+                            break;
+                        case LOADING_STATE.Loading04:
+                            m_eNextLoadingState = LOADING_STATE.Loading05;
+                            break;
+                        case LOADING_STATE.Loading05:
+                            m_eNextLoadingState = LOADING_STATE.Loading01;
+                            break;
+                        default:
+                            break;
+                    }
+
+                    m_fStartLoadingClock = 0.0f;
+                }
+            }
+
+            if (m_bChangeScene)
+            {
+                m_fChangeSceneClock += Time.deltaTime;
+                if (m_fChangeSceneClock >= m_fChangeSceneTime)
+                {
+                    m_bChangeScene = false;
+                    m_fChangeSceneClock = 0.0f;
+
+                    m_bStartLoading = false;
+
+                    GameLogic.GetInstance.LoadingGame();
+                }
+            }
+        }
+
+        void DetectLoadingText()
+        {
+            if (m_eNextLoadingState != m_eCurLoadingState)
+            {
+                switch (m_eNextLoadingState)
+                {
+                    case LOADING_STATE.Loading01:
+                        m_tmpLoading.text = "LOADING.";
+                        break;
+                    case LOADING_STATE.Loading02:
+                        m_tmpLoading.text = "LOADING..";
+                        break;
+                    case LOADING_STATE.Loading03:
+                        m_tmpLoading.text = "LOADING...";
+                        break;
+                    case LOADING_STATE.Loading04:
+                        m_tmpLoading.text = "LOADING....";
+                        break;
+                    case LOADING_STATE.Loading05:
+                        m_tmpLoading.text = "LOADING.....";
+                        break;
+                    default:
+                        break;
+                }
+
+                m_eCurLoadingState = m_eNextLoadingState;
+            }
         }
 
         public void Command(int v_iPlayerID, IO_Command r_command)
@@ -89,9 +216,44 @@ namespace Controller
                 if (iPos == -1)
                     return;
 
-
                 m_playerUIItemController[iPos].ShowSign(i);
             }
+        }
+
+        public void PlayLoading()
+        {
+            m_imgLoadingBG.enabled = true;
+            m_tmpLoading.enabled = true;
+
+            m_bStartLoading = true;
+            m_tmpLoading.text = "LOADING";
+
+            m_eNextLoadingState = LOADING_STATE.Loading01;
+
+            m_bChangeScene = true;
+        }
+
+        public void StartCDTimer()
+        {
+            PlayLoading();
+            //if (m_iCurTimes <= 0)
+            //{
+            //    Debug.LogError("Over");
+            //    m_bStartCountDown = false;
+            //    m_fCountDownClock = 0.0f;
+            //    return;
+            //}
+
+            //m_tmpCDTimer.text = m_iCurTimes.ToString();
+            //m_tmpCDTimer.enabled = true;
+
+            //m_iCurTimes -= 1;
+
+            //m_animCDTimer.Stop();
+            //m_animCDTimer.Play();
+
+            //m_bStartCountDown = true;
+            //m_fCountDownClock = 0.0f;
         }
     }
 }

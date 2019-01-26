@@ -51,5 +51,10 @@ namespace Manager
         {
             m_lisPlayerUIController.Command(v_playerID, r_ioCommand);
         }
+
+        public void StartCDTimer()
+        {
+            m_lisPlayerUIController.StartCDTimer();
+        }
     }
 }
