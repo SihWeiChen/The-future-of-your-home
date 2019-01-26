@@ -18,7 +18,7 @@ public class QuestionController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.V))
         {
             int eventID = Random.Range(0, 21);
-            SetQuestionString(TableData.Init.GetEventTableData(eventID).EventName);
+            //SetQuestionString(TableData.Init.GetEventTableData(eventID).EventName);
         }
     }
 

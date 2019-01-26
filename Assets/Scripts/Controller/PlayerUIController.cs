@@ -236,24 +236,6 @@ namespace Controller
         public void StartCDTimer()
         {
             PlayLoading();
-            //if (m_iCurTimes <= 0)
-            //{
-            //    Debug.LogError("Over");
-            //    m_bStartCountDown = false;
-            //    m_fCountDownClock = 0.0f;
-            //    return;
-            //}
-
-            //m_tmpCDTimer.text = m_iCurTimes.ToString();
-            //m_tmpCDTimer.enabled = true;
-
-            //m_iCurTimes -= 1;
-
-            //m_animCDTimer.Stop();
-            //m_animCDTimer.Play();
-
-            //m_bStartCountDown = true;
-            //m_fCountDownClock = 0.0f;
         }
     }
 }

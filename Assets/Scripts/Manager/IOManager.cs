@@ -96,32 +96,38 @@ namespace Manager
             if (Input.GetButtonDown("P2_C"))
                 P2_C();
 
-            float fP2_H = Input.GetAxis("P2_Horizontal") * Time.deltaTime * 10.0f;
-            float fP2_V = Input.GetAxis("P2_Vertical") * Time.deltaTime * 10.0f;
+            //float fP2_H = Input.GetAxis("P2_Horizontal") * Time.deltaTime * 10.0f;
+            //float fP2_V = Input.GetAxis("P2_Vertical") * Time.deltaTime * 10.0f;
 
-            if (fP2_H == 0)
-            {
-                m_bPressRight_P2 = false;
-                m_bPressLeft_P2 = false;
-            }
+            //if (fP2_H == 0)
+            //{
+            //    m_bPressRight_P2 = false;
+            //    m_bPressLeft_P2 = false;
+            //}
 
-            if (fP2_H >= 0.1f)
-            {
-                if (m_bPressRight_P2 == false)
-                {
-                    m_bPressRight_P2 = true;
-                    P2_Right();
-                }
+            //if (fP2_H >= 0.1f)
+            //{
+            //    if (m_bPressRight_P2 == false)
+            //    {
+            //        m_bPressRight_P2 = true;
+            //        P2_Right();
+            //    }
 
-            }
-            else if (fP2_H <= -0.1f)
-            {
-                if (m_bPressLeft_P2 == false)
-                {
-                    m_bPressLeft_P2 = true;
-                    P2_Left();
-                }
-            }
+            //}
+            //else if (fP2_H <= -0.1f)
+            //{
+            //    if (m_bPressLeft_P2 == false)
+            //    {
+            //        m_bPressLeft_P2 = true;
+            //        P2_Left();
+            //    }
+            //}
+
+            if (Input.GetKeyDown(KeyCode.Z))
+                P2_Left();
+
+            if (Input.GetKeyDown(KeyCode.X))
+                P2_Right();
 
             DetectStartGame();
         }
