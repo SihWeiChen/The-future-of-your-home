@@ -11,7 +11,10 @@ public class SpriteManager : MonoBehaviour
     public Sprite m_Daughter;
     public Sprite m_Son;
 
-    public Sprite m_Item;
+    public Sprite m_ItemCar;
+    public Sprite m_ItemBook;
+    public Sprite m_ItemPS4;
+    public Sprite m_ItemHat;
 
     public static SpriteManager GetInstance()
     {
@@ -45,6 +48,27 @@ public class SpriteManager : MonoBehaviour
                 break;
             case Common.ActorDef.Daughter:
                 temp = m_Daughter;
+                break;
+        }
+        return temp;
+    }
+
+    public Sprite GetItemSprite(Common.EventItem item)
+    {
+        Sprite temp = m_ItemCar;
+        switch(item)
+        {
+            case Common.EventItem.Book:
+                temp = m_ItemBook;
+                break;
+            case Common.EventItem.Car:
+                temp = m_ItemCar;
+                break;
+            case Common.EventItem.Hat:
+                temp = m_ItemHat;
+                break;
+            case Common.EventItem.PS4:
+                temp = m_ItemPS4;
                 break;
         }
         return temp;

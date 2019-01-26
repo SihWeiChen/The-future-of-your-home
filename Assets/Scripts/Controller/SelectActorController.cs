@@ -24,7 +24,8 @@ namespace Controller
             ChangeActor(index);
         }
         public void ChangeActor(int index)
-        { 
+        {
+            Debug.Log("index: " + index);
             curSpriteIndex = index;
             m_Image.sprite = arySourceSprite[curSpriteIndex];
         }

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8950842462040132277}
   - component: {fileID: 8950842462040132276}
   - component: {fileID: 8950842462040132279}
-  - component: {fileID: 3485447745451271195}
   m_Layer: 5
   m_Name: Actor
   m_TagString: Untagged
@@ -119,19 +118,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &3485447745451271195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8950842462040132272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a167e336a65eb943ab3ae652477915f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manager: {fileID: 0}
 --- !u!1 &8950842462054282259
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,6 +171,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ActorIMG: {fileID: 8950842462040132276}
+  m_Item1: {fileID: 8950842462857282968}
+  m_Item2: {fileID: 8950842462701510339}
+  m_Item3: {fileID: 8950842462131414143}
 --- !u!1 &8950842462091467751
 GameObject:
   m_ObjectHideFlags: 0

@@ -29,6 +29,13 @@ namespace Common
     }
 
 
+    public enum EventItem
+    {
+        Car = 0,
+        Book = 1,
+        Hat = 2,
+        PS4 = 3,
+    }
 
 
 }
