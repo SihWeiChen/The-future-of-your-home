@@ -16,7 +16,6 @@ namespace Controller
         // Update is called once per frame
         void Update()
         {
-            ChangeActor(curSpriteIndex);
         }
 
         public void ChangeActor(Common.ActorDef actor)
