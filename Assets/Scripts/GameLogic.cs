@@ -11,6 +11,7 @@ public class GameLogic : MonoBehaviour
 
     GameData m_clsGameData;
     UIManager m_clsUIManager;
+    GamePlayManager m_clsGamePlayerManager;
 
     void Awake()
     {
@@ -22,6 +23,7 @@ public class GameLogic : MonoBehaviour
 
         m_clsGameData = new GameData();
         m_clsUIManager = new UIManager();
+        m_clsGamePlayerManager = new GamePlayManager();
     }
 
     void Start()
@@ -29,9 +31,10 @@ public class GameLogic : MonoBehaviour
         Debug.LogWarning("GameLogic / Start");
 
         SceneManager.LoadScene("GameMenu", LoadSceneMode.Additive);
-
+        SceneManager.sceneLoaded += OnSceneLoaded;
         m_clsGameData.Start();
         m_clsUIManager.Start();
+        m_clsGamePlayerManager.Start();
         Init();
     }
 
@@ -39,12 +42,26 @@ public class GameLogic : MonoBehaviour
     {
         m_clsGameData.Init();
         m_clsUIManager.Init();
+        m_clsGamePlayerManager.Init();
     }
 
     void Update()
     {
         m_clsGameData.Update();
         m_clsUIManager.Update();
+        m_clsGamePlayerManager.Update();
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        switch (scene.name)
+        {
+            case "GameMenu":
+                GetGameData().ioState = Common.IO_STATE.SelectCharacter;
+                break;
+            default:
+                break;
+        }
     }
 
     #region Proxy & Mediator
@@ -56,6 +73,11 @@ public class GameLogic : MonoBehaviour
     public UIManager GetUIManager()
     {
         return m_clsUIManager;
+    }
+
+    public GamePlayManager GetGamePlayerManager()
+    {
+        return m_clsGamePlayerManager;
     }
     #endregion
 }

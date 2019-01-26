@@ -64,10 +64,7 @@ namespace Manager
 
             if (Input.GetButtonDown("P2_C"))
                 P2_C();
-
-
-
-
+                
             //Debug.Log(string.Format("X11: {0}", fX11));
             //Debug.Log(string.Format("Y11: {0}", fY11));
         }
@@ -75,11 +72,12 @@ namespace Manager
         void P1_A()
         {
             Debug.Log(string.Format("P1_A"));
-            switch (IO_STATE.None)
+            switch (GameLogic.GetInstance.GetGameData().ioState)
             {
                 case IO_STATE.None:
                     break;
                 case IO_STATE.SelectCharacter:
+
                     break;
                 case IO_STATE.InGame:
                     break;
@@ -91,7 +89,7 @@ namespace Manager
         void P1_B()
         {
             Debug.Log(string.Format("P1_B"));
-            switch (IO_STATE.None)
+            switch (GameLogic.GetInstance.GetGameData().ioState)
             {
                 case IO_STATE.None:
                     break;
@@ -107,7 +105,7 @@ namespace Manager
         void P1_C()
         {
             Debug.Log(string.Format("P1_C"));
-            switch (IO_STATE.None)
+            switch (GameLogic.GetInstance.GetGameData().ioState)
             {
                 case IO_STATE.None:
                     break;
@@ -123,7 +121,7 @@ namespace Manager
         void P1_D()
         {
             Debug.Log(string.Format("P1_D"));
-            switch (IO_STATE.None)
+            switch (GameLogic.GetInstance.GetGameData().ioState)
             {
                 case IO_STATE.None:
                     break;
@@ -139,11 +137,12 @@ namespace Manager
         void P1_Right()
         {
             Debug.Log(string.Format("P1_Right"));
-            switch (IO_STATE.None)
+            switch (GameLogic.GetInstance.GetGameData().ioState)
             {
                 case IO_STATE.None:
                     break;
                 case IO_STATE.SelectCharacter:
+                    GameLogic.GetInstance.GetUIManager().PlayerCommand(1, IO_Command.Right);
                     break;
                 case IO_STATE.InGame:
                     break;
@@ -155,11 +154,12 @@ namespace Manager
         void P1_Left()
         {
             Debug.Log(string.Format("P1_Left"));
-            switch (IO_STATE.None)
+            switch (GameLogic.GetInstance.GetGameData().ioState)
             {
                 case IO_STATE.None:
                     break;
                 case IO_STATE.SelectCharacter:
+                    GameLogic.GetInstance.GetUIManager().PlayerCommand(1, IO_Command.Left);
                     break;
                 case IO_STATE.InGame:
                     break;
@@ -171,7 +171,7 @@ namespace Manager
         void P2_A()
         {
             Debug.Log(string.Format("P2_A"));
-            switch (IO_STATE.None)
+            switch (GameLogic.GetInstance.GetGameData().ioState)
             {
                 case IO_STATE.None:
                     break;
@@ -187,7 +187,7 @@ namespace Manager
         void P2_B()
         {
             Debug.Log(string.Format("P2_B"));
-            switch (IO_STATE.None)
+            switch (GameLogic.GetInstance.GetGameData().ioState)
             {
                 case IO_STATE.None:
                     break;
@@ -203,7 +203,7 @@ namespace Manager
         void P2_C()
         {
             Debug.Log(string.Format("P2_C"));
-            switch (IO_STATE.None)
+            switch (GameLogic.GetInstance.GetGameData().ioState)
             {
                 case IO_STATE.None:
                     break;
@@ -219,7 +219,7 @@ namespace Manager
         void P2_D()
         {
             Debug.Log(string.Format("P2_D"));
-            switch (IO_STATE.None)
+            switch (GameLogic.GetInstance.GetGameData().ioState)
             {
                 case IO_STATE.None:
                     break;
