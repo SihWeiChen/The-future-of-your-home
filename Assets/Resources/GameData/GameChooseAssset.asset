@@ -1,0 +1,393 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c98626674c2f49209d5f3b282145a1b, type: 3}
+  m_Name: GameChooseAssset
+  m_EditorClassIdentifier: 
+  chooseTablesList:
+  - NID: 1
+    ChooseName: "\u6C99\u767C"
+    ChangeQuality: 0
+    ChangeFeel: 5
+    ChangeMoney: 0
+    OpenEventNID: 0
+  - NID: 2
+    ChooseName: "\u5EDA\u5177"
+    ChangeQuality: 5
+    ChangeFeel: 0
+    ChangeMoney: 0
+    OpenEventNID: 0
+  - NID: 3
+    ChooseName: "\u9910\u684C"
+    ChangeQuality: 0
+    ChangeFeel: 5
+    ChangeMoney: 0
+    OpenEventNID: 0
+  - NID: 4
+    ChooseName: "\u96FB\u8996"
+    ChangeQuality: 0
+    ChangeFeel: 0
+    ChangeMoney: 5
+    OpenEventNID: 0
+  - NID: 5
+    ChooseName: "\u73A9\u5177"
+    ChangeQuality: 5
+    ChangeFeel: 0
+    ChangeMoney: 0
+    OpenEventNID: 0
+  - NID: 6
+    ChooseName: "\u76C6\u683D"
+    ChangeQuality: 0
+    ChangeFeel: 5
+    ChangeMoney: 0
+    OpenEventNID: 0
+  - NID: 7
+    ChooseName: "\u9322"
+    ChangeQuality: 0
+    ChangeFeel: 0
+    ChangeMoney: 5
+    OpenEventNID: 0
+  - NID: 8
+    ChooseName: "\u6587\u5177"
+    ChangeQuality: 3
+    ChangeFeel: 0
+    ChangeMoney: 0
+    OpenEventNID: 0
+  - NID: 9
+    ChooseName: "\u5E8A"
+    ChangeQuality: 2
+    ChangeFeel: 4
+    ChangeMoney: 0
+    OpenEventNID: 0
+  - NID: 10
+    ChooseName: "\u7B46\u96FB"
+    ChangeQuality: 0
+    ChangeFeel: 1
+    ChangeMoney: 5
+    OpenEventNID: 0
+  - NID: 11
+    ChooseName: "\u72D7"
+    ChangeQuality: 3
+    ChangeFeel: 2
+    ChangeMoney: 0
+    OpenEventNID: 0
+  - NID: 12
+    ChooseName: "\u8C93"
+    ChangeQuality: 2
+    ChangeFeel: 3
+    ChangeMoney: 0
+    OpenEventNID: 0
+  - NID: 13
+    ChooseName: "\u62DB\u8CA1\u8C93"
+    ChangeQuality: 0
+    ChangeFeel: 0
+    ChangeMoney: 5
+    OpenEventNID: 0
+  - NID: 14
+    ChooseName: "\u6A5F\u8ECA"
+    ChangeQuality: 2
+    ChangeFeel: 1
+    ChangeMoney: 1
+    OpenEventNID: 0
+  - NID: 15
+    ChooseName: "\u6C7D\u8ECA"
+    ChangeQuality: 3
+    ChangeFeel: 4
+    ChangeMoney: 0
+    OpenEventNID: 0
+  - NID: 16
+    ChooseName: "\u8ECA\u7968"
+    ChangeQuality: 0
+    ChangeFeel: 0
+    ChangeMoney: 4
+    OpenEventNID: 0
+  - NID: 17
+    ChooseName: "\u66F8"
+    ChangeQuality: 5
+    ChangeFeel: 4
+    ChangeMoney: 1
+    OpenEventNID: 0
+  - NID: 18
+    ChooseName: "\u88DC\u7FD2\u73ED"
+    ChangeQuality: 0
+    ChangeFeel: 1
+    ChangeMoney: 0
+    OpenEventNID: 0
+  - NID: 19
+    ChooseName: "\u611B\u7684\u5C0F\u624B"
+    ChangeQuality: 0
+    ChangeFeel: 0
+    ChangeMoney: 4
+    OpenEventNID: 0
+  - NID: 20
+    ChooseName: "\u9152"
+    ChangeQuality: 1
+    ChangeFeel: 4
+    ChangeMoney: 1
+    OpenEventNID: 0
+  - NID: 21
+    ChooseName: "\u9818\u5E36"
+    ChangeQuality: 2
+    ChangeFeel: 0
+    ChangeMoney: 1
+    OpenEventNID: 0
+  - NID: 22
+    ChooseName: "\u897F\u88DD"
+    ChangeQuality: 2
+    ChangeFeel: 1
+    ChangeMoney: 3
+    OpenEventNID: 0
+  - NID: 23
+    ChooseName: "\u5438\u5875\u5668"
+    ChangeQuality: 1
+    ChangeFeel: 0
+    ChangeMoney: 1
+    OpenEventNID: 0
+  - NID: 24
+    ChooseName: "\u6383\u5730\u6A5F\u5668\u4EBA"
+    ChangeQuality: 4
+    ChangeFeel: 5
+    ChangeMoney: 0
+    OpenEventNID: 0
+  - NID: 25
+    ChooseName: "\u6383\u628A"
+    ChangeQuality: 0
+    ChangeFeel: 0
+    ChangeMoney: 4
+    OpenEventNID: 0
+  - NID: 26
+    ChooseName: "\u904A\u6232\u4E3B\u6A5F"
+    ChangeQuality: 5
+    ChangeFeel: 0
+    ChangeMoney: 0
+    OpenEventNID: 0
+  - NID: 27
+    ChooseName: "\u5C0F\u706B\u8ECA"
+    ChangeQuality: 0
+    ChangeFeel: 2
+    ChangeMoney: 4
+    OpenEventNID: 0
+  - NID: 28
+    ChooseName: "\u66F8"
+    ChangeQuality: 0
+    ChangeFeel: 3
+    ChangeMoney: 1
+    OpenEventNID: 0
+  - NID: 29
+    ChooseName: "\u8863\u670D"
+    ChangeQuality: 3
+    ChangeFeel: 5
+    ChangeMoney: 0
+    OpenEventNID: 0
+  - NID: 30
+    ChooseName: "\u9AEE\u98FE"
+    ChangeQuality: 2
+    ChangeFeel: 0
+    ChangeMoney: 1
+    OpenEventNID: 0
+  - NID: 31
+    ChooseName: "\u9322"
+    ChangeQuality: 0
+    ChangeFeel: 0
+    ChangeMoney: 4
+    OpenEventNID: 0
+  - NID: 32
+    ChooseName: "\u76C6\u683D"
+    ChangeQuality: 3
+    ChangeFeel: 2
+    ChangeMoney: 0
+    OpenEventNID: 0
+  - NID: 33
+    ChooseName: "\u756B"
+    ChangeQuality: 2
+    ChangeFeel: 3
+    ChangeMoney: 0
+    OpenEventNID: 0
+  - NID: 34
+    ChooseName: "\u62DB\u8CA1\u8C93"
+    ChangeQuality: 0
+    ChangeFeel: 0
+    ChangeMoney: 5
+    OpenEventNID: 0
+  - NID: 35
+    ChooseName: "\u611B\u7684\u5C0F\u624B"
+    ChangeQuality: 0
+    ChangeFeel: 5
+    ChangeMoney: 1
+    OpenEventNID: 0
+  - NID: 36
+    ChooseName: "\u6253\u96FB\u8A71\u7D66\u5B78\u6821"
+    ChangeQuality: 0
+    ChangeFeel: 0
+    ChangeMoney: 4
+    OpenEventNID: 0
+  - NID: 37
+    ChooseName: "\u7E43\u5E36"
+    ChangeQuality: 5
+    ChangeFeel: 0
+    ChangeMoney: 0
+    OpenEventNID: 0
+  - NID: 38
+    ChooseName: "\u71C8"
+    ChangeQuality: 0
+    ChangeFeel: 5
+    ChangeMoney: 0
+    OpenEventNID: 0
+  - NID: 39
+    ChooseName: "\u64C1\u62B1"
+    ChangeQuality: 5
+    ChangeFeel: 0
+    ChangeMoney: 0
+    OpenEventNID: 0
+  - NID: 40
+    ChooseName: "\u62DB\u8CA1\u8C93"
+    ChangeQuality: 0
+    ChangeFeel: 0
+    ChangeMoney: 5
+    OpenEventNID: 0
+  - NID: 41
+    ChooseName: "\u884C\u674E\u7BB1"
+    ChangeQuality: 2
+    ChangeFeel: 3
+    ChangeMoney: 0
+    OpenEventNID: 0
+  - NID: 42
+    ChooseName: "\u7167\u76F8\u6A5F"
+    ChangeQuality: 3
+    ChangeFeel: 2
+    ChangeMoney: 0
+    OpenEventNID: 0
+  - NID: 43
+    ChooseName: "\u8173\u8E0F\u8ECA"
+    ChangeQuality: 0
+    ChangeFeel: 0
+    ChangeMoney: 5
+    OpenEventNID: 0
+  - NID: 44
+    ChooseName: "\u773C\u93E1"
+    ChangeQuality: 4
+    ChangeFeel: 0
+    ChangeMoney: 2
+    OpenEventNID: 0
+  - NID: 45
+    ChooseName: "\u91CD\u578B\u6A5F\u8ECA"
+    ChangeQuality: 1
+    ChangeFeel: 1
+    ChangeMoney: 0
+    OpenEventNID: 0
+  - NID: 46
+    ChooseName: "\u593E\u514B"
+    ChangeQuality: 0
+    ChangeFeel: 4
+    ChangeMoney: 3
+    OpenEventNID: 0
+  - NID: 47
+    ChooseName: "\u611B\u7684\u5C0F\u624B"
+    ChangeQuality: 0
+    ChangeFeel: 0
+    ChangeMoney: 5
+    OpenEventNID: 0
+  - NID: 48
+    ChooseName: "\u9322"
+    ChangeQuality: 0
+    ChangeFeel: 5
+    ChangeMoney: 0
+    OpenEventNID: 0
+  - NID: 49
+    ChooseName: "\u64C1\u62B1"
+    ChangeQuality: 5
+    ChangeFeel: 0
+    ChangeMoney: 0
+    OpenEventNID: 0
+  - NID: 50
+    ChooseName: "\u5DF4\u638C"
+    ChangeQuality: 0
+    ChangeFeel: 0
+    ChangeMoney: 5
+    OpenEventNID: 0
+  - NID: 51
+    ChooseName: "\u9322"
+    ChangeQuality: 2
+    ChangeFeel: 0
+    ChangeMoney: 0
+    OpenEventNID: 0
+  - NID: 52
+    ChooseName: "\u66F8"
+    ChangeQuality: 3
+    ChangeFeel: 5
+    ChangeMoney: 0
+    OpenEventNID: 0
+  - NID: 53
+    ChooseName: "\u8173\u8E0F\u8ECA"
+    ChangeQuality: 4
+    ChangeFeel: 0
+    ChangeMoney: 5
+    OpenEventNID: 0
+  - NID: 54
+    ChooseName: "\u5065\u5EB7\u98DF\u54C1"
+    ChangeQuality: 1
+    ChangeFeel: 0
+    ChangeMoney: 0
+    OpenEventNID: 0
+  - NID: 55
+    ChooseName: "\u91AB\u9662"
+    ChangeQuality: 0
+    ChangeFeel: 0
+    ChangeMoney: 5
+    OpenEventNID: 0
+  - NID: 56
+    ChooseName: "\u66F8"
+    ChangeQuality: 0
+    ChangeFeel: 0
+    ChangeMoney: 0
+    OpenEventNID: 0
+  - NID: 57
+    ChooseName: 
+    ChangeQuality: 0
+    ChangeFeel: 0
+    ChangeMoney: 0
+    OpenEventNID: 0
+  - NID: 58
+    ChooseName: "\u9322"
+    ChangeQuality: 0
+    ChangeFeel: 0
+    ChangeMoney: 0
+    OpenEventNID: 0
+  - NID: 59
+    ChooseName: "\u7167\u76F8\u6A5F"
+    ChangeQuality: 0
+    ChangeFeel: 0
+    ChangeMoney: 0
+    OpenEventNID: 0
+  - NID: 60
+    ChooseName: "\u9322"
+    ChangeQuality: 0
+    ChangeFeel: 0
+    ChangeMoney: 0
+    OpenEventNID: 0
+  - NID: 61
+    ChooseName: "\u5DF4\u638C"
+    ChangeQuality: 0
+    ChangeFeel: 0
+    ChangeMoney: 0
+    OpenEventNID: 0
+  - NID: 62
+    ChooseName: "\u6212\u6307"
+    ChangeQuality: 0
+    ChangeFeel: 0
+    ChangeMoney: 0
+    OpenEventNID: 0
+  - NID: 63
+    ChooseName: "\u6212\u6307"
+    ChangeQuality: 0
+    ChangeFeel: 0
+    ChangeMoney: 0
+    OpenEventNID: 0

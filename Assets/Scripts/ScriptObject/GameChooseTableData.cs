@@ -25,5 +25,9 @@ public class GameChooseTableData
     /// 改變金錢
     /// </summary>
     public int ChangeMoney;
+    /// <summary>
+    /// 開啟事件
+    /// </summary>
+    public int OpenEventNID;
 }
 

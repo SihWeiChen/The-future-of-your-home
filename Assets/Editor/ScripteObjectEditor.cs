@@ -5,10 +5,10 @@ using UnityEditor;
 
 public class ScripteObjectEditor : EditorWindow
 {
-    string path = "Assets/GameData/GameEventAssset.asset";
+    string path = "Assets/Resources/GameData/GameEventAssset.asset";
     GameEventList eventList;
 
-    string path2 = "Assets/GameData/GameChooseAssset.asset";
+    string path2 = "Assets/Resources/GameData/GameChooseAssset.asset";
     GameChooseList eventList2;
 
     [MenuItem("Window/Data Defn Editor %#m")]
