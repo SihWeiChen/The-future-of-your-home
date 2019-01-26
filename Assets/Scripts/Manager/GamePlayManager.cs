@@ -87,7 +87,26 @@ public class GamePlayManager : IPlayerEvent
 
                 case ChooseState.End:
 
-                    int answer = 1;
+                    int answer = 0;
+                    foreach (PlayerController player in playerList)
+                    {
+                        if (player.m_playerID >= GameLogic.GetInstance.GetGameData().playerCount)
+                            continue;
+                        switch(player.m_selectID)
+                        {
+                            case 0:
+                                answer = TableData.Init.GetEventTableData(GameSetting.CurEventID).ChooseID1;
+                                break;
+                            case 1:
+                                answer = TableData.Init.GetEventTableData(GameSetting.CurEventID).ChooseID2;
+                                break;
+                            case 2:
+                                answer = TableData.Init.GetEventTableData(GameSetting.CurEventID).ChooseID3;
+                                break;
+                        }
+                    }
+
+                    Debug.Log("answer: " + answer);
 
                     int life = TableData.Init.GetChooseTableData(answer).ChangeFeel;
                     int money = TableData.Init.GetChooseTableData(answer).ChangeMoney;
@@ -238,6 +257,7 @@ public class GamePlayManager : IPlayerEvent
             Debug.LogError("Error");
             eventID = 1;
         }
+        GameSetting.CurEventID = eventID;
         GameEventTableData data = TableData.Init.GetEventTableData(eventID);
         Debug.Log("SetQuestion ChooseID1: " + data.ChooseID1);
         if (data.ChooseID1 == 0)

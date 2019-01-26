@@ -11,6 +11,7 @@ namespace Common
         public static int Quality = 50;
         public static int Life = 50;
         public static int ChooseCount = 10;
+        public static int CurEventID = 0;
     }
 
     public enum ActorDef

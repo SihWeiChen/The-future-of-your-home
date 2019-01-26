@@ -28,8 +28,8 @@ public class QuestionController : MonoBehaviour
     public void SetQuestionString(string value, string an1, string an2, string an3)
     {
         m_Question.text = value;
-        m_Answer1.text = an1;
-        m_Answer2.text = an2;
-        m_Answer3.text = an3;
+        m_Answer1.text = "A:" + an1;
+        m_Answer2.text = "B:" + an2;
+        m_Answer3.text = "C:" + an3;
     }
 }
