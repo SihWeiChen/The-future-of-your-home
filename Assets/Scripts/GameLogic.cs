@@ -29,7 +29,7 @@ public class GameLogic : MonoBehaviour
         Debug.LogWarning("GameLogic / Start");
 
         SceneManager.LoadScene("GameMenu", LoadSceneMode.Additive);
-
+        SceneManager.sceneLoaded += OnSceneLoaded;
         m_clsGameData.Start();
         m_clsUIManager.Start();
         Init();
@@ -45,6 +45,18 @@ public class GameLogic : MonoBehaviour
     {
         m_clsGameData.Update();
         m_clsUIManager.Update();
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        switch (scene.name)
+        {
+            case "GameMenu":
+                GetGameData().ioState = Common.IO_STATE.SelectCharacter;
+                break;
+            default:
+                break;
+        }
     }
 
     #region Proxy & Mediator
