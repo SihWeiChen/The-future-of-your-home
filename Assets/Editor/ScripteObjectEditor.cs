@@ -37,17 +37,19 @@ public class ScripteObjectEditor : EditorWindow
         if (GUILayout.Button("Create EventTabList"))
         {
             eventList = ScriptableObject.CreateInstance<GameEventList>();
-            List<GameEventTableData> eventTables = new List<GameEventTableData>();
-            eventTables.Add(new GameEventTableData());
+            eventList.gameEventTables = new List<GameEventTableData>();
+            eventList.gameEventTables.Add(new GameEventTableData());
             AssetDatabase.CreateAsset(eventList, path);
-            AssetDatabase.SaveAssets();
+           //AssetDatabase.SaveAssets();
         }
+
 
         if (GUILayout.Button("Create Choose"))
         {
             eventList2 = ScriptableObject.CreateInstance<GameChooseList>();
             List<GameChooseTableData> eventTables = new List<GameChooseTableData>();
             eventTables.Add(new GameChooseTableData());
+            eventList2.chooseTablesList = eventTables;
             AssetDatabase.CreateAsset(eventList2, path2);
             AssetDatabase.SaveAssets();
         }
@@ -60,17 +62,14 @@ public class ScripteObjectEditor : EditorWindow
         if (GUILayout.Button("Add choose"))
         {
             eventList2.chooseTablesList.Add(new GameChooseTableData());
-            //eventList2.chooseTablesList.Add(rtableData);
             EditorUtility.SetDirty(eventList2);
         }
         if (GUILayout.Button("Save"))
         {
-            foreach (var item in eventList.gameEventTables)
-            {
-                Debug.Log(item.EventName);
-            }
+            List<GameEventTableData> eventTables = eventList.gameEventTables;
             EditorUtility.SetDirty(eventList);
             EditorUtility.SetDirty(eventList2);
+
         }
         if (GUI.changed) {
             EditorUtility.SetDirty(eventList);
