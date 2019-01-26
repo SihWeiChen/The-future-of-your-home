@@ -65,8 +65,18 @@ public class GamePlayManager
         switch(r_ioCommand)
         {
             case IO_Command.Left:
+
                 break;
+
             case IO_Command.Right:
+
+                break;
+
+            case IO_Command.A:
+            case IO_Command.B:
+            case IO_Command.C:
+            case IO_Command.D:
+                
                 break;
         }
     }
