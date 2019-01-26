@@ -13,6 +13,9 @@ namespace Manager
         bool m_bPressRight_P2;
         bool m_bPressLeft_P2;
 
+        bool m_bReady_P1;
+        bool m_bReady_P2;
+
         void Start()
         {
 
@@ -122,8 +125,17 @@ namespace Manager
                 }
             }
 
-            //Debug.Log(string.Format("X11: {0}", fX11));
-            //Debug.Log(string.Format("Y11: {0}", fY11));
+            DetectStartGame();
+        }
+
+        void DetectStartGame()
+        {
+            if (m_bReady_P1 && m_bReady_P2)
+            { 
+                GameLogic.GetInstance.GetGameData().startGame = true;
+                m_bReady_P1 = false;
+                m_bReady_P2 = false;
+            }
         }
 
         void P1_A()
@@ -135,8 +147,14 @@ namespace Manager
                     break;
                 case IO_STATE.SelectCharacter:
 
+                    if (m_bReady_P1 == true)
+                        break;
+
+                    m_bReady_P1 = true;
+                    GameLogic.GetInstance.GetUIManager().PlayerCommand(0, IO_Command.A);
                     break;
                 case IO_STATE.InGame:
+                    GameLogic.GetInstance.GetUIManager().PlayerCommand(0, IO_Command.A);
                     break;
                 default:
                     break;
@@ -199,6 +217,8 @@ namespace Manager
                 case IO_STATE.None:
                     break;
                 case IO_STATE.SelectCharacter:
+                    if (m_bReady_P1 == true)
+                        break;
                     GameLogic.GetInstance.GetUIManager().PlayerCommand(0, IO_Command.Right);
                     break;
                 case IO_STATE.InGame:
@@ -217,6 +237,8 @@ namespace Manager
                 case IO_STATE.None:
                     break;
                 case IO_STATE.SelectCharacter:
+                    if (m_bReady_P1 == true)
+                        break;
                     GameLogic.GetInstance.GetUIManager().PlayerCommand(0, IO_Command.Left);
                     break;
                 case IO_STATE.InGame:
@@ -235,6 +257,13 @@ namespace Manager
                 case IO_STATE.None:
                     break;
                 case IO_STATE.SelectCharacter:
+
+                    if (m_bReady_P2 == true)
+                        break;
+
+                    m_bReady_P2 = true;
+                    GameLogic.GetInstance.GetUIManager().PlayerCommand(1, IO_Command.A);
+
                     break;
                 case IO_STATE.InGame:
                     break;
@@ -299,6 +328,11 @@ namespace Manager
                 case IO_STATE.None:
                     break;
                 case IO_STATE.SelectCharacter:
+                    if (m_bReady_P2 == true)
+                        break;
+
+                   
+
                     GameLogic.GetInstance.GetUIManager().PlayerCommand(1, IO_Command.Right);
                     break;
                 case IO_STATE.InGame:
@@ -317,6 +351,8 @@ namespace Manager
                 case IO_STATE.None:
                     break;
                 case IO_STATE.SelectCharacter:
+                    if (m_bReady_P2 == true)
+                        break;
                     GameLogic.GetInstance.GetUIManager().PlayerCommand(1, IO_Command.Left);
                     break;
                 case IO_STATE.InGame:

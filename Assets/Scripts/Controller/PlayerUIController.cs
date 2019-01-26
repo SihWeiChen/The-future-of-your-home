@@ -46,6 +46,9 @@ namespace Controller
                 case IO_Command.Right:
                     GameLogic.GetInstance.GetGameData().playerUIDatas[v_iPlayerID].uiPos += 1;
                     break;
+                case IO_Command.A:
+                    DetermineCharacter(v_iPlayerID);
+                    break;
                 default:
                     break;
             }
@@ -66,6 +69,12 @@ namespace Controller
         {
             GameLogic.GetInstance.GetGameData().playerUIDatas[v_playerID].uiPos = v_pos;
             UpdateUI();
+        }
+
+        void DetermineCharacter(int v_playerID)
+        {
+            int iDeterminePos = GameLogic.GetInstance.GetGameData().playerUIDatas[v_playerID].uiPos;
+            m_playerUIItemController[iDeterminePos].DetermineCharacter();
         }
 
         void UpdateUI()

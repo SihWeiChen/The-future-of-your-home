@@ -48,6 +48,7 @@ namespace Common
     {
         None = 0,
         SelectCharacter,
+        Ready,
         InGame, 
     }
 

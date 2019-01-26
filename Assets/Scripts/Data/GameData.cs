@@ -9,8 +9,14 @@ namespace Data
     {
         IO_STATE m_eIOState;
         const int m_iPlayerCount = 2;
-
+        bool m_bStartGame;
         PlayerUIData[] m_playerUIData;
+
+        public bool startGame
+        {
+            get { return m_bStartGame; }
+            set { m_bStartGame = value; }
+        }
 
         public IO_STATE ioState
         {
