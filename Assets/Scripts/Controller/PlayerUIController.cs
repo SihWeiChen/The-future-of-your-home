@@ -25,6 +25,7 @@ namespace Controller
         [SerializeField] Animation m_animCDTimer;
         [SerializeField] Image m_imgLoadingBG;
         [SerializeField] TextMeshProUGUI m_tmpLoading;
+        [SerializeField] Text m_txtTip;
 
         [SerializeField] Animation[] m_animCharacterScale;
         [SerializeField] TextMeshProUGUI m_tmpLogo;
@@ -64,7 +65,7 @@ namespace Controller
             m_eNextLoadingState = m_eCurLoadingState;
             m_imgLoadingBG.enabled = false;
             m_tmpLoading.enabled = false;
-
+            m_txtTip.enabled = false;
             m_bStartLoading = false;
             m_fStartLoadingClock = 0.0f;
 
@@ -221,7 +222,7 @@ namespace Controller
 
             m_bStartLoading = true;
             m_tmpLoading.text = "LOADING";
-
+            m_txtTip.enabled = true;
             m_eNextLoadingState = LOADING_STATE.Loading01;
 
             m_bChangeScene = true;
