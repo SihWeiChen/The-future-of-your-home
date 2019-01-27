@@ -73,6 +73,7 @@ namespace Common
     public enum ItemPutType{
         None,
         Sofa,
+        Table,
         Bookcase,
         Photo,
         Lamp,
