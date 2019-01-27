@@ -90,7 +90,13 @@ public class GamePlayManager : IPlayerEvent
                     ActorDef actor = (ActorDef)data[i].uiPos;
                     SetPlayerIcon(i, actor);
                 }
-                SetQuestion(GetQuestionID());
+                int qid = GetQuestionID();
+                while (m_OpenQuestionID.Contains(qid))
+                {
+                    qid = GetQuestionID();
+                }
+                m_OpenQuestionID.Add(qid);
+                SetQuestion(qid);
                 GameLogic.GetInstance.GetGamePlayerManager().dialog.Play_Show();
                 bFirst = false;
             }
@@ -246,7 +252,13 @@ public class GamePlayManager : IPlayerEvent
                     if (CheckIsOver() == false)
                     {
                         m_chooseState = ChooseState.WaitOther;
-                        SetQuestion(GetQuestionID());
+                        int qid = GetQuestionID();
+                        while (m_OpenQuestionID.Contains(qid))
+                        {
+                            qid = GetQuestionID();
+                        }
+                        m_OpenQuestionID.Add(qid);
+                        SetQuestion(qid);
                         ResetPlayerSelect();
                         GameLogic.GetInstance.GetGamePlayerManager().dialog.Play_Show();
                     }
@@ -486,6 +498,7 @@ public class GamePlayManager : IPlayerEvent
         Son = 3,
     }
 
+    List<int> m_OpenQuestionID = new List<int>();
     public int GetQuestionID()
     {
         int questionID = 1;
