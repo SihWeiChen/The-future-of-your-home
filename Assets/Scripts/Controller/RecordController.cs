@@ -10,25 +10,27 @@ namespace Controller
         [SerializeField] RawImage m_imgPicture;
         [SerializeField] Image m_imgBG;
         [SerializeField] Animation m_anim;
+        [SerializeField] Image m_frame;
+        [SerializeField] RectTransform m_tranButtons;
 
         bool m_bRoting;
         float m_fRotValue;
-        const float m_fRotTime = 2.0f;
+        const float m_fRotTime = 2f;
 
         void Start()
         {
+            GameLogic.GetInstance.GetGamePlayerManager().Regist(GamePlayManager.RegistType.RecordController, this);
+
             m_imgPicture.enabled = false;
             m_imgBG.enabled = false;
+            m_frame.enabled = false;
+            m_tranButtons.gameObject.SetActive(false);
+
             m_bRoting = false;
         }
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                ShowRecord();
-            }
-
             if (m_bRoting)
             {
                 m_fRotValue += Time.deltaTime / m_fRotTime;
@@ -49,6 +51,8 @@ namespace Controller
             ScreenShot();
             m_imgPicture.enabled = true;
             m_imgBG.enabled = true;
+            m_frame.enabled = true;
+            m_tranButtons.gameObject.SetActive(true);
             m_anim.Play();
             m_bRoting = true;
 
@@ -58,7 +62,7 @@ namespace Controller
 
         void ScreenShot()
         {
-            Texture2D picture = CameraHelper.CaptureScreenshot2(new Rect() { width = 2850.0f, height = 1500.0f });
+            Texture2D picture = CameraHelper.CaptureScreenshot2(new Rect() { width = Screen.width, height = Screen.height });
             m_imgPicture.texture = picture;
         }
     }
