@@ -13,9 +13,9 @@ public class StateController : MonoBehaviour
     public TextMeshPro m_L_Value;
     public TextMeshPro m_M_Value;
 
-    [SerializeField] TextMeshProUGUI m_tmpQulity;
-    [SerializeField] TextMeshProUGUI m_tmpLife;
-    [SerializeField] TextMeshProUGUI m_tmpMoney;
+    [SerializeField] TextMeshPro m_tmpQulity;
+    [SerializeField] TextMeshPro m_tmpLife;
+    [SerializeField] TextMeshPro m_tmpMoney;
     [SerializeField] Animation m_animQuality;
     [SerializeField] Animation m_animLife;
     [SerializeField] Animation m_animMoney;
