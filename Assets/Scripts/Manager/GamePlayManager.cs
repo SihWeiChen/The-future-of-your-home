@@ -263,7 +263,8 @@ public class GamePlayManager : IPlayerEvent
                 case ChooseState.GameOver:
                     Debug.LogError("Game Over!!!");
 
-
+                    GameLogic.GetInstance.GetAudioManager().Stop(Manager.AudioManager.AUDIO_TYPE.BGM);
+                    GameLogic.GetInstance.GetAudioManager().Play(Manager.AudioManager.AUDIO_TYPE.FailGame);
                     GameLogic.GetInstance.GetGamePlayerManager().ShowRecord();
                     GameLogic.GetInstance.GetGameData().ioState = IO_STATE.Over;
                     break;
