@@ -53,7 +53,7 @@ public class StateController : MonoBehaviour
     {
         m_bars_L.SetValue(value);
         m_L_Value.text = value.ToString();
-        m_tmpLife.text = v_extraValue < 0 ? "-" + v_extraValue.ToString() : "+" + v_extraValue.ToString();
+        m_tmpLife.text = v_extraValue < 0 ? v_extraValue.ToString() : "+" + v_extraValue.ToString();
 
         if (v_extraValue != 0)
         { 
@@ -66,7 +66,7 @@ public class StateController : MonoBehaviour
     {
         m_bars_M.SetValue(value);
         m_M_Value.text = value.ToString();
-        m_tmpMoney.text = v_extraValue < 0 ? "-" + v_extraValue.ToString() : "+" + v_extraValue.ToString();
+        m_tmpMoney.text = v_extraValue < 0 ? v_extraValue.ToString() : "+" + v_extraValue.ToString();
 
         if (v_extraValue != 0)
         { 
