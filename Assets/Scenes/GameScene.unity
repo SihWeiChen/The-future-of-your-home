@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1065,6 +1065,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2194251807724085505, guid: a2a544ed09fc38d4b8596201a6811634,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2194251807724085505, guid: a2a544ed09fc38d4b8596201a6811634,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 324961253689948317, guid: a2a544ed09fc38d4b8596201a6811634,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 324961253689948317, guid: a2a544ed09fc38d4b8596201a6811634,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 566397051366948013, guid: a2a544ed09fc38d4b8596201a6811634,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 566397051366948013, guid: a2a544ed09fc38d4b8596201a6811634,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2a544ed09fc38d4b8596201a6811634, type: 3}
@@ -2068,11 +2098,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Record
       objectReference: {fileID: 0}
-    - target: {fileID: 8028899948569599155, guid: 808fe6737262c44d1bf33feb970a160d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3777007659872846292, guid: 808fe6737262c44d1bf33feb970a160d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2126,7 +2151,7 @@ PrefabInstance:
     - target: {fileID: 3777007659872846292, guid: 808fe6737262c44d1bf33feb970a160d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 360
       objectReference: {fileID: 0}
     - target: {fileID: 3777007659872846292, guid: 808fe6737262c44d1bf33feb970a160d,
         type: 3}
