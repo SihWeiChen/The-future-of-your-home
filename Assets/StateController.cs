@@ -40,7 +40,7 @@ public class StateController : MonoBehaviour
     {
         m_bars_Q.SetValue(value);
         m_Q_Value.text = value.ToString();
-        m_tmpQulity.text = v_extraValue < 0 ? "-" + v_extraValue.ToString() : "+" + v_extraValue.ToString();
+        m_tmpQulity.text = v_extraValue < 0 ? v_extraValue.ToString() : "+" + v_extraValue.ToString();
 
         if (v_extraValue != 0)
         { 
