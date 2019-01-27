@@ -34,6 +34,11 @@ namespace Manager
             if (Input.GetButtonDown("P1_C"))
                 P1_C();
 
+            if (Input.GetKeyDown(KeyCode.U))
+                P1_Left();
+
+            if (Input.GetKeyDown(KeyCode.I))
+                P1_Right();
 
             float fP1_H = Input.GetAxis("P1_Horizontal");
             float fP1_V = Input.GetAxis("P1_Vertical");
