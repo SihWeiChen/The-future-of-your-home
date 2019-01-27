@@ -764,7 +764,6 @@ GameObject:
   - component: {fileID: 2351659065109367760}
   - component: {fileID: 2351659065109367773}
   - component: {fileID: 2351659065109367762}
-  - component: {fileID: 2351659065109367763}
   m_Layer: 5
   m_Name: Answer3
   m_TagString: Untagged
@@ -833,22 +832,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: C:789
---- !u!114 &2351659065109367763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2351659065109367761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2272a25c305b5c4e83702a932746024, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Question: {fileID: 2351659065109367762}
-  m_Answer1: {fileID: 0}
-  m_Answer2: {fileID: 0}
-  m_Answer3: {fileID: 0}
 --- !u!1 &2351659065482477172
 GameObject:
   m_ObjectHideFlags: 0
@@ -949,7 +932,6 @@ GameObject:
   - component: {fileID: 2351659065641392930}
   - component: {fileID: 2351659065641392943}
   - component: {fileID: 2351659065641392940}
-  - component: {fileID: 2351659065641392941}
   m_Layer: 5
   m_Name: Answer2
   m_TagString: Untagged
@@ -1018,22 +1000,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: B:456
---- !u!114 &2351659065641392941
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2351659065641392931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2272a25c305b5c4e83702a932746024, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Question: {fileID: 2351659065641392940}
-  m_Answer1: {fileID: 0}
-  m_Answer2: {fileID: 0}
-  m_Answer3: {fileID: 0}
 --- !u!1 &2351659065899238953
 GameObject:
   m_ObjectHideFlags: 0
@@ -1045,7 +1011,6 @@ GameObject:
   - component: {fileID: 2351659065899238952}
   - component: {fileID: 2351659065899238965}
   - component: {fileID: 2351659065899238954}
-  - component: {fileID: 2351659065899238955}
   m_Layer: 5
   m_Name: Answer1
   m_TagString: Untagged
@@ -1114,22 +1079,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: A:123
---- !u!114 &2351659065899238955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2351659065899238953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2272a25c305b5c4e83702a932746024, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Question: {fileID: 2351659065899238954}
-  m_Answer1: {fileID: 0}
-  m_Answer2: {fileID: 0}
-  m_Answer3: {fileID: 0}
 --- !u!1 &2407881067824754394
 GameObject:
   m_ObjectHideFlags: 0

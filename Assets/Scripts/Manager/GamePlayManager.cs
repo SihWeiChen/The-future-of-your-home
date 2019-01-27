@@ -75,7 +75,6 @@ public class GamePlayManager : IPlayerEvent
     bool bFirst = true;
 
     List<ActorDef> m_select = new List<ActorDef>();
-
     public void Update()
     {
         if (GameLogic.GetInstance.GetGameData().ioState == IO_STATE.InGame)
@@ -91,10 +90,10 @@ public class GamePlayManager : IPlayerEvent
                     SetPlayerIcon(i, actor);
                 }
                 int qid = GetQuestionID();
-                while (m_OpenQuestionID.Contains(qid))
-                {
-                    qid = GetQuestionID();
-                }
+                //while (m_OpenQuestionID.Contains(qid))
+                //{
+                //    qid = GetQuestionID();
+                //}
                 m_OpenQuestionID.Add(qid);
                 SetQuestion(qid);
                 GameLogic.GetInstance.GetGamePlayerManager().dialog.Play_Show();
