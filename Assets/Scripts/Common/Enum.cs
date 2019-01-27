@@ -53,6 +53,7 @@ namespace Common
         SelectCharacter,
         Ready,
         InGame, 
+        Over,
     }
 
     public enum IO_Command

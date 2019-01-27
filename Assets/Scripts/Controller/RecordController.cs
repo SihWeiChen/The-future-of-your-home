@@ -13,10 +13,12 @@ namespace Controller
 
         bool m_bRoting;
         float m_fRotValue;
-        const float m_fRotTime = 2.0f;
+        const float m_fRotTime = 2f;
 
         void Start()
         {
+            GameLogic.GetInstance.GetGamePlayerManager().Regist(GamePlayManager.RegistType.RecordController, this);
+
             m_imgPicture.enabled = false;
             m_imgBG.enabled = false;
             m_bRoting = false;
@@ -24,11 +26,6 @@ namespace Controller
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                ShowRecord();
-            }
-
             if (m_bRoting)
             {
                 m_fRotValue += Time.deltaTime / m_fRotTime;
@@ -58,7 +55,7 @@ namespace Controller
 
         void ScreenShot()
         {
-            Texture2D picture = CameraHelper.CaptureScreenshot2(new Rect() { width = 2850.0f, height = 1500.0f });
+            Texture2D picture = CameraHelper.CaptureScreenshot2(new Rect() { width = Screen.width, height = Screen.height });
             m_imgPicture.texture = picture;
         }
     }
