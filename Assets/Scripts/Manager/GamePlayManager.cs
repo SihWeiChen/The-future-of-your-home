@@ -4,6 +4,7 @@ using UnityEngine;
 using Controller;
 using Common;
 using Data;
+using System;
 
 public class GamePlayManager : IPlayerEvent
 {
@@ -13,6 +14,7 @@ public class GamePlayManager : IPlayerEvent
         StateController,
         QuestionController,
         DialogController,
+        BGLevelUpController,
     }
 
     public enum ChooseState
@@ -24,6 +26,16 @@ public class GamePlayManager : IPlayerEvent
     }
     ChooseState m_chooseState = ChooseState.WaitOther;
 
+    public enum BG_LevelUp_Item
+    {
+        Photo,
+        Bookcase,
+        Light,
+        Table,
+        Sofa,
+        Lamp,
+    }
+
 
     List<PlayerController> playerList = new List<PlayerController>();
     StateController stateList = new StateController();
@@ -31,6 +43,9 @@ public class GamePlayManager : IPlayerEvent
     List<int> itemSelectList = new List<int>();
     QuestionController question;
     DialogController dialog;
+
+    Dictionary<BG_LevelUp_Item, BGLevelUp> dicBGLevelUp = new Dictionary<BG_LevelUp_Item, BGLevelUp>();
+    Dictionary<BG_LevelUp_Item, int> dicBGLevelValue = new Dictionary<BG_LevelUp_Item, int>();
 
     float ShowItemTimer = 3.0f;
     float curShowItemTime = 0.0f;
@@ -143,6 +158,12 @@ public class GamePlayManager : IPlayerEvent
 
                     m_chooseState = ChooseState.ShowItem;
 
+                    foreach(KeyValuePair<BG_LevelUp_Item, BGLevelUp> obj in dicBGLevelUp)
+                    {
+                        dicBGLevelValue[obj.Key]++;
+                        obj.Value.LevelUp(dicBGLevelValue[obj.Key]);
+                    }
+
                     Debug.Log("ChooseState.End");
                     break;
                 case ChooseState.ShowItem:
@@ -192,6 +213,12 @@ public class GamePlayManager : IPlayerEvent
 
             case RegistType.DialogController:
                 dialog = (DialogController)r_object;
+                break;
+            case RegistType.BGLevelUpController:
+                BGLevelUp obj = (BGLevelUp)r_object;
+                BG_LevelUp_Item thisItem = (BG_LevelUp_Item)Enum.Parse(typeof(BG_LevelUp_Item), obj.name);
+                dicBGLevelUp.Add(thisItem, obj);
+                dicBGLevelValue.Add(thisItem, 1);
                 break;
         }
     }
@@ -342,7 +369,7 @@ public class GamePlayManager : IPlayerEvent
     public int GetQuestionID()
     {
         int questionID = 0;
-        questionID = Random.Range(0, 5);
+        questionID = UnityEngine.Random.Range(0, 5);
         return questionID;
         switch (m_questionState)
         {
@@ -350,16 +377,16 @@ public class GamePlayManager : IPlayerEvent
                 questionID = 0;
                 break;
             case QuestionState.Creator:
-                questionID = Random.Range((int)QuestionEndID.Demo, (int)QuestionEndID.Creator)+1;
+                questionID = UnityEngine.Random.Range((int)QuestionEndID.Demo, (int)QuestionEndID.Creator)+1;
                 break;
             case QuestionState.Develop:
-                questionID = Random.Range((int)QuestionEndID.Creator, (int)QuestionEndID.Develop)+1;
+                questionID = UnityEngine.Random.Range((int)QuestionEndID.Creator, (int)QuestionEndID.Develop)+1;
                 break;
             case QuestionState.Fight:
-                questionID = Random.Range((int)QuestionEndID.Develop, (int)QuestionEndID.Fight)+1;
+                questionID = UnityEngine.Random.Range((int)QuestionEndID.Develop, (int)QuestionEndID.Fight)+1;
                 break;
             default:
-                questionID = Random.Range((int)QuestionEndID.Demo, (int)QuestionEndID.Fight)+1;
+                questionID = UnityEngine.Random.Range((int)QuestionEndID.Demo, (int)QuestionEndID.Fight)+1;
                 break;
         }
         return questionID;

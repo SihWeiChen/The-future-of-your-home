@@ -13,6 +13,8 @@ public class BGLevelUp : MonoBehaviour
         this.LVGameObj = new OBJLevelUp[this.GetComponentsInChildren<OBJLevelUp>().Length];
         this.LVGameObj =this.GetComponentsInChildren<OBJLevelUp>();
         this.LevelUp();
+
+        GameLogic.GetInstance.GetGamePlayerManager().Regist(GamePlayManager.RegistType.BGLevelUpController, this);
     }
 
 
