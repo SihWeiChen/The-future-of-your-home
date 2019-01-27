@@ -39,7 +39,7 @@ MonoBehaviour:
     ChangeQuality: 1
     ChangeFeel: 0
     ChangeMoney: -2
-    ItemType: 0
+    ItemType: 1
     OpenEventNID: 0
   - NID: 5
     ChooseName: "\u73A9\u5177"
@@ -67,7 +67,7 @@ MonoBehaviour:
     ChangeQuality: 0
     ChangeFeel: 1
     ChangeMoney: 0
-    ItemType: 0
+    ItemType: 3
     OpenEventNID: 0
   - NID: 9
     ChooseName: "\u5E8A"
@@ -102,7 +102,7 @@ MonoBehaviour:
     ChangeQuality: 0
     ChangeFeel: -2
     ChangeMoney: 2
-    ItemType: 2
+    ItemType: 0
     OpenEventNID: 0
   - NID: 14
     ChooseName: "\u6A5F\u8ECA"
@@ -368,21 +368,21 @@ MonoBehaviour:
     ChangeQuality: 0
     ChangeFeel: 3
     ChangeMoney: -2
-    ItemType: 0
+    ItemType: 4
     OpenEventNID: 0
   - NID: 52
     ChooseName: "\u516C\u5712"
     ChangeQuality: 0
     ChangeFeel: 1
     ChangeMoney: 0
-    ItemType: 0
+    ItemType: 4
     OpenEventNID: 0
   - NID: 53
     ChooseName: "\u9AD8\u7D1A\u897F\u9910\u5EF3"
     ChangeQuality: 2
     ChangeFeel: 3
     ChangeMoney: -2
-    ItemType: 0
+    ItemType: 4
     OpenEventNID: 0
   - NID: 54
     ChooseName: "\u8DEF\u908A\u5C0F\u5403"
@@ -396,7 +396,7 @@ MonoBehaviour:
     ChangeQuality: 0
     ChangeFeel: 5
     ChangeMoney: 0
-    ItemType: 0
+    ItemType: 5
     OpenEventNID: 0
   - NID: 56
     ChooseName: 7
@@ -543,7 +543,7 @@ MonoBehaviour:
     ChangeQuality: 1
     ChangeFeel: -1
     ChangeMoney: 3
-    ItemType: 0
+    ItemType: 2
     OpenEventNID: 0
   - NID: 77
     ChooseName: "\u540D\u7247"
@@ -592,7 +592,7 @@ MonoBehaviour:
     ChangeQuality: 3
     ChangeFeel: 3
     ChangeMoney: -2
-    ItemType: 0
+    ItemType: 5
     OpenEventNID: 0
   - NID: 84
     ChooseName: "\u96FB\u98A8\u6247"
@@ -690,7 +690,7 @@ MonoBehaviour:
     ChangeQuality: -3
     ChangeFeel: 0
     ChangeMoney: 0
-    ItemType: 0
+    ItemType: 5
     OpenEventNID: 0
   - NID: 98
     ChooseName: "\u52E4\u52A0\u88DC\u7FD2"
@@ -704,14 +704,14 @@ MonoBehaviour:
     ChangeQuality: 1
     ChangeFeel: -1
     ChangeMoney: 0
-    ItemType: 0
+    ItemType: 5
     OpenEventNID: 0
   - NID: 100
     ChooseName: "\u5EDF\u88E1\u62DC\u62DC"
     ChangeQuality: 0
     ChangeFeel: 3
     ChangeMoney: 0
-    ItemType: 0
+    ItemType: 5
     OpenEventNID: 0
   - NID: 101
     ChooseName: "\u570D\u5DFE"
@@ -725,7 +725,7 @@ MonoBehaviour:
     ChangeQuality: 2
     ChangeFeel: -3
     ChangeMoney: -1
-    ItemType: 0
+    ItemType: 2
     OpenEventNID: 0
   - NID: 103
     ChooseName: "Cosplay\u9053\u5177"
@@ -802,7 +802,7 @@ MonoBehaviour:
     ChangeQuality: 0
     ChangeFeel: 1
     ChangeMoney: 0
-    ItemType: 0
+    ItemType: 5
     OpenEventNID: 0
   - NID: 114
     ChooseName: "\u734E\u91D1"
@@ -851,14 +851,14 @@ MonoBehaviour:
     ChangeQuality: 0
     ChangeFeel: 2
     ChangeMoney: 0
-    ItemType: 0
+    ItemType: 5
     OpenEventNID: 0
   - NID: 121
     ChooseName: "\u62DB\u8CA1\u8C93"
     ChangeQuality: 0
     ChangeFeel: 0
     ChangeMoney: 3
-    ItemType: 0
+    ItemType: 2
     OpenEventNID: 0
   - NID: 122
     ChooseName: "\u65C5\u884C"
@@ -921,7 +921,7 @@ MonoBehaviour:
     ChangeQuality: 0
     ChangeFeel: 3
     ChangeMoney: 0
-    ItemType: 0
+    ItemType: 5
     OpenEventNID: 0
   - NID: 131
     ChooseName: "\u7238\u5ABD\u611B\u7684\u5DF4\u638C"
@@ -942,7 +942,7 @@ MonoBehaviour:
     ChangeQuality: 0
     ChangeFeel: 2
     ChangeMoney: -1
-    ItemType: 0
+    ItemType: 3
     OpenEventNID: 0
   - NID: 134
     ChooseName: "\u5316\u599D\u54C1"
@@ -977,7 +977,7 @@ MonoBehaviour:
     ChangeQuality: 1
     ChangeFeel: -1
     ChangeMoney: -2
-    ItemType: 0
+    ItemType: 1
     OpenEventNID: 0
   - NID: 139
     ChooseName: "\u65B0\u6C34\u7BA1"
@@ -1096,21 +1096,21 @@ MonoBehaviour:
     ChangeQuality: -1
     ChangeFeel: 1
     ChangeMoney: -1
-    ItemType: 0
+    ItemType: 1
     OpenEventNID: 0
   - NID: 156
     ChooseName: "\u4E8C\u5EA6\u871C\u6708"
     ChangeQuality: 2
     ChangeFeel: 5
     ChangeMoney: -3
-    ItemType: 0
+    ItemType: 4
     OpenEventNID: 0
   - NID: 157
     ChooseName: "\u4E00\u500B\u4EBA\u7684\u65C5\u884C"
     ChangeQuality: 0
     ChangeFeel: 3
     ChangeMoney: -2
-    ItemType: 0
+    ItemType: 4
     OpenEventNID: 0
   - NID: 158
     ChooseName: "\u6A02\u898B\u5176\u6210"
@@ -1194,7 +1194,7 @@ MonoBehaviour:
     ChangeQuality: 0
     ChangeFeel: 2
     ChangeMoney: -1
-    ItemType: 0
+    ItemType: 4
     OpenEventNID: 0
   - NID: 170
     ChooseName: "\u9322"
@@ -1208,14 +1208,14 @@ MonoBehaviour:
     ChangeQuality: 2
     ChangeFeel: 3
     ChangeMoney: -2
-    ItemType: 0
+    ItemType: 4
     OpenEventNID: 0
   - NID: 172
     ChooseName: "\u8001\u5B50\u9053\u5FB7\u7D93"
     ChangeQuality: 0
     ChangeFeel: -5
     ChangeMoney: 0
-    ItemType: 0
+    ItemType: 3
     OpenEventNID: 0
   - NID: 173
     ChooseName: "\u8173\u8E0F\u8ECA"
@@ -1257,7 +1257,7 @@ MonoBehaviour:
     ChangeQuality: 0
     ChangeFeel: 3
     ChangeMoney: -1
-    ItemType: 0
+    ItemType: 4
     OpenEventNID: 0
   - NID: 179
     ChooseName: "\u58AE\u80CE\u9322"
@@ -1278,5 +1278,5 @@ MonoBehaviour:
     ChangeQuality: 0
     ChangeFeel: 2
     ChangeMoney: -1
-    ItemType: 0
+    ItemType: 4
     OpenEventNID: 0
