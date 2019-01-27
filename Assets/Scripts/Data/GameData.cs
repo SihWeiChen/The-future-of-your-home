@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Common;
-
+using Manager;
 namespace Data
 { 
     public class GameData
@@ -13,11 +13,19 @@ namespace Data
 
         string m_iGameEndingContent;
         string m_iGameEndingContent2;
+        AudioManager.BGM_LEVEL m_eBGM_Level;
+
 
         public IO_STATE ioState
         {
             get { return m_eIOState; }
             set { m_eIOState = value; }
+        }
+
+        public AudioManager.BGM_LEVEL bgmLevel
+        {
+            get { return m_eBGM_Level; }
+            set { m_eBGM_Level = value; }
         }
 
         public int playerCount

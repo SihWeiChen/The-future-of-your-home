@@ -17,8 +17,6 @@ public class GameLogic : MonoBehaviour
     float m_fStartGameCDClock;
     const float m_fStartGameCDTime = 2.0f;
 
-    [SerializeField] MeshRenderer m_mesPicture;
-
     void Awake()
     {
         Debug.LogWarning("GameLogic / Awake");
@@ -97,6 +95,8 @@ public class GameLogic : MonoBehaviour
     public void ChangeSceneToGame()
     {
         SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
+        m_clsAudioManager.Stop(AudioManager.AUDIO_TYPE.MenuBGM);
+        m_clsAudioManager.PlayBGM();
         GetGameData().ioState = Common.IO_STATE.InGame;
     }
 
@@ -114,6 +114,11 @@ public class GameLogic : MonoBehaviour
     public UIManager GetUIManager()
     {
         return m_clsUIManager;
+    }
+
+    public AudioManager GetAudioManager()
+    {
+        return m_clsAudioManager; 
     }
 
     public GamePlayManager GetGamePlayerManager()

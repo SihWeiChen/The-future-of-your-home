@@ -168,6 +168,8 @@ public class GamePlayManager : IPlayerEvent
                     else if (GameSetting.Quality < 0)
                         GameSetting.Quality = 0;
 
+                    GameLogic.GetInstance.GetAudioManager().PlayBGM();
+
                     // every time money add
                     GameSetting.Money++;
 
