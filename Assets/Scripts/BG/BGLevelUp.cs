@@ -15,7 +15,7 @@ public class BGLevelUp : MonoBehaviour
         this.animator = this.GetComponent<Animator>();
         this.LevelUp();
 
-
+        GameLogic.GetInstance.GetGamePlayerManager().Regist(GamePlayManager.RegistType.BGLevelUpController, this);
     }
 
 
