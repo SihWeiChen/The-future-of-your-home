@@ -10,6 +10,8 @@ namespace Controller
         [SerializeField] RawImage m_imgPicture;
         [SerializeField] Image m_imgBG;
         [SerializeField] Animation m_anim;
+        [SerializeField] Image m_frame;
+        [SerializeField] RectTransform m_tranButtons;
 
         bool m_bRoting;
         float m_fRotValue;
@@ -21,6 +23,9 @@ namespace Controller
 
             m_imgPicture.enabled = false;
             m_imgBG.enabled = false;
+            m_frame.enabled = false;
+            m_tranButtons.gameObject.SetActive(false);
+
             m_bRoting = false;
         }
 
@@ -46,6 +51,8 @@ namespace Controller
             ScreenShot();
             m_imgPicture.enabled = true;
             m_imgBG.enabled = true;
+            m_frame.enabled = true;
+            m_tranButtons.gameObject.SetActive(true);
             m_anim.Play();
             m_bRoting = true;
 

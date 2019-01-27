@@ -581,6 +581,8 @@ MonoBehaviour:
   m_imgPicture: {fileID: 8894679005584825827}
   m_imgBG: {fileID: 1919518937560798441}
   m_anim: {fileID: 3806463168797399297}
+  m_frame: {fileID: 4648726823932920676}
+  m_tranButtons: {fileID: 9152197037524637105}
 --- !u!111 &3806463168797399297
 Animation:
   m_ObjectHideFlags: 0
