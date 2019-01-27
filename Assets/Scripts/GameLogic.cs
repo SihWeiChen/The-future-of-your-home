@@ -17,6 +17,8 @@ public class GameLogic : MonoBehaviour
     float m_fStartGameCDClock;
     const float m_fStartGameCDTime = 2.0f;
 
+    [SerializeField] MeshRenderer m_mesPicture;
+
     void Awake()
     {
         Debug.LogWarning("GameLogic / Awake");
