@@ -12,12 +12,14 @@ public class GamePlayManager : IPlayerEvent
         PlayerController,
         StateController,
         QuestionController,
+        DialogController,
     }
 
     public enum ChooseState
     {
         WaitOther,
         End,
+        ShowItem,
         GameOver,
     }
     ChooseState m_chooseState = ChooseState.WaitOther;
@@ -28,6 +30,11 @@ public class GamePlayManager : IPlayerEvent
 
     List<int> itemSelectList = new List<int>();
     QuestionController question;
+    DialogController dialog;
+
+    float ShowItemTimer = 3.0f;
+    float curShowItemTime = 0.0f;
+
     public void Init()
     {
 
@@ -61,6 +68,7 @@ public class GamePlayManager : IPlayerEvent
                     SetPlayerIcon(i, actor);
                 }
                 SetQuestion(GetQuestionID());
+                GameLogic.GetInstance.GetGamePlayerManager().dialog.Play_Show();
                 bFirst = false;
             }
 
@@ -80,6 +88,7 @@ public class GamePlayManager : IPlayerEvent
                     }
                     if (allSelect == true)
                     {
+                        GameLogic.GetInstance.GetGamePlayerManager().dialog.Play_Close();
                         m_chooseState = ChooseState.End;
                     }
                     Debug.Log("ChooseState.WaitOther");
@@ -131,13 +140,29 @@ public class GamePlayManager : IPlayerEvent
                         player.bSelected = false;
                     }
                     GameSetting.ChooseCount--;
-                    SetQuestion(GetQuestionID());
-                    ResetPlayerSelect();
+
+                    m_chooseState = ChooseState.ShowItem;
+
+                    Debug.Log("ChooseState.End");
+                    break;
+                case ChooseState.ShowItem:
+
+                    if(curShowItemTime <= ShowItemTimer)
+                    {
+                        curShowItemTime += Time.deltaTime;
+                        break;
+                    }
+                    curShowItemTime = 0.0f;
+
                     if (CheckIsOver() == false)
+                    {
                         m_chooseState = ChooseState.WaitOther;
+                        SetQuestion(GetQuestionID());
+                        ResetPlayerSelect();
+                        GameLogic.GetInstance.GetGamePlayerManager().dialog.Play_Show();
+                    }
                     else
                         m_chooseState = ChooseState.GameOver;
-                    Debug.Log("ChooseState.End");
                     break;
                 case ChooseState.GameOver:
                     Debug.LogError("Game Over!!!");
@@ -163,6 +188,10 @@ public class GamePlayManager : IPlayerEvent
                 break;
             case RegistType.QuestionController:
                 question = (QuestionController)r_object;
+                break;
+
+            case RegistType.DialogController:
+                dialog = (DialogController)r_object;
                 break;
         }
     }

@@ -9,6 +9,11 @@ namespace Controller
     {
         [SerializeField] Animation m_animFrame;
 
+        void Start()
+        {
+            GameLogic.GetInstance.GetGamePlayerManager().Regist(GamePlayManager.RegistType.DialogController, this);
+        }
+
         public void Play_Show()
         {
             m_animFrame.Play("ShowFrame");
