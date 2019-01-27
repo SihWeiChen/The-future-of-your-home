@@ -15,6 +15,7 @@ public class GamePlayManager : IPlayerEvent
         QuestionController,
         DialogController,
         BGLevelUpController,
+        RecordController,
     }
 
     public enum ChooseState
@@ -43,6 +44,7 @@ public class GamePlayManager : IPlayerEvent
     List<int> itemSelectList = new List<int>();
     QuestionController question;
     DialogController dialog;
+    RecordController m_clsRecordController;
 
     Dictionary<BG_LevelUp_Item, BGLevelUp> dicBGLevelUp = new Dictionary<BG_LevelUp_Item, BGLevelUp>();
     Dictionary<BG_LevelUp_Item, int> dicBGLevelValue = new Dictionary<BG_LevelUp_Item, int>();
@@ -214,6 +216,7 @@ public class GamePlayManager : IPlayerEvent
                     break;
                 case ChooseState.GameOver:
                     Debug.LogError("Game Over!!!");
+                    GameLogic.GetInstance.GetGameData().ioState = IO_STATE.Over;
                     break;
             }
         }
@@ -246,6 +249,9 @@ public class GamePlayManager : IPlayerEvent
                 BG_LevelUp_Item thisItem = (BG_LevelUp_Item)Enum.Parse(typeof(BG_LevelUp_Item), obj.name);
                 dicBGLevelUp.Add(thisItem, obj);
                 dicBGLevelValue.Add(thisItem, 1);
+                break;
+            case RegistType.RecordController:
+                m_clsRecordController = r_object as RecordController;
                 break;
         }
     }
@@ -417,5 +423,10 @@ public class GamePlayManager : IPlayerEvent
                 break;
         }
         return questionID;
+    }
+
+    public void ShowRecord()
+    {
+        m_clsRecordController.ShowRecord(); 
     }
 }
