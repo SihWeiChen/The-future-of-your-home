@@ -158,7 +158,9 @@ public class GamePlayManager : IPlayerEvent
 
                     m_chooseState = ChooseState.ShowItem;
 
-                    foreach(KeyValuePair<BG_LevelUp_Item, BGLevelUp> obj in dicBGLevelUp)
+                    ItemPutType itemType = TableData.Init.GetChooseTableData(answer).ItemType;
+                    
+                    foreach (KeyValuePair<BG_LevelUp_Item, BGLevelUp> obj in dicBGLevelUp)
                     {
                         dicBGLevelValue[obj.Key]++;
                         obj.Value.LevelUp(dicBGLevelValue[obj.Key]);
