@@ -7,9 +7,9 @@ namespace Common
     public class GameSetting
     {
         public static int PLAYER_MAXIMUM = 4;
-        public static int Money = 50;
-        public static int Quality = 50;
-        public static int Life = 50;
+        public static int Money = 10;
+        public static int Quality = 10;
+        public static int Life = 10;
         public static int ChooseCount = 10;
         public static int CurEventID = 0;
     }

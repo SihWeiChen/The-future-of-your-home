@@ -21,6 +21,7 @@ public class GamePlayManager : IPlayerEvent
     {
         WaitOther,
         End,
+        ShowAnswer,
         ShowItem,
         GameOver,
     }
@@ -49,6 +50,11 @@ public class GamePlayManager : IPlayerEvent
 
     float ShowItemTimer = 3.0f;
     float curShowItemTime = 0.0f;
+
+    float ShowAnswerTimer = 1.0f;
+    float curShowAnswerTime = 0.0f;
+
+    int thisAnswer = 0;
 
     public void Init()
     {
@@ -110,8 +116,10 @@ public class GamePlayManager : IPlayerEvent
                     break;
 
                 case ChooseState.End:
-
                     int answer = 0;
+
+                    Dictionary<int, int> selectList = new Dictionary<int, int>();
+
                     foreach (PlayerController player in playerList)
                     {
                         if (player.m_playerID >= GameLogic.GetInstance.GetGameData().playerCount)
@@ -128,26 +136,45 @@ public class GamePlayManager : IPlayerEvent
                                 answer = TableData.Init.GetEventTableData(GameSetting.CurEventID).ChooseID3;
                                 break;
                         }
+                        selectList.Add(player.m_playerID, answer);
                     }
+                    int rndPlayerID = UnityEngine.Random.Range(0, GameLogic.GetInstance.GetGameData().playerCount);
+                    int finalAnswer = selectList[rndPlayerID];
 
-                    Debug.Log("answer: " + answer);
+                    Debug.Log("finalAnswer: " + finalAnswer);
 
-                    int life = TableData.Init.GetChooseTableData(answer).ChangeFeel;
-                    int money = TableData.Init.GetChooseTableData(answer).ChangeMoney;
-                    int quality = TableData.Init.GetChooseTableData(answer).ChangeQuality;
+                    int life = TableData.Init.GetChooseTableData(finalAnswer).ChangeFeel;
+                    int money = TableData.Init.GetChooseTableData(finalAnswer).ChangeMoney;
+                    int quality = TableData.Init.GetChooseTableData(finalAnswer).ChangeQuality;
 
                     Debug.Log("life: " + life);
                     Debug.Log("money: " + money);
                     Debug.Log("quality: " + quality);
                     GameSetting.Life += life;
+                    if (GameSetting.Life > 20)
+                        GameSetting.Life = 20;
+                    else if (GameSetting.Life < 0)
+                        GameSetting.Life = 0;
                     GameSetting.Money += money;
+                    if (GameSetting.Money > 20)
+                        GameSetting.Money = 20;
+                    else if (GameSetting.Money < 0)
+                        GameSetting.Money = 0;
                     GameSetting.Quality += quality;
+                    if (GameSetting.Quality > 20)
+                        GameSetting.Quality = 20;
+                    else if (GameSetting.Quality < 0)
+                        GameSetting.Quality = 0;
+
+                    // every time money add
+                    GameSetting.Money++;
+
                     stateList.SetLife(GameSetting.Life);
                     stateList.SetMoney(GameSetting.Money);
                     stateList.SetQuality(GameSetting.Quality);
 
 
-                    m_questionState = (QuestionState) TableData.Init.GetChooseTableData(answer).OpenEventNID;
+                    m_questionState = (QuestionState) TableData.Init.GetChooseTableData(finalAnswer).OpenEventNID;
                     m_questionState = QuestionState.Develop;
 
                     foreach (PlayerController player in playerList)
@@ -158,7 +185,7 @@ public class GamePlayManager : IPlayerEvent
 
                     m_chooseState = ChooseState.ShowItem;
 
-                    ItemPutType itemType = TableData.Init.GetChooseTableData(answer).ItemType;
+                    ItemPutType itemType = TableData.Init.GetChooseTableData(finalAnswer).ItemType;
 
                     itemType = (ItemPutType)(DateTime.Now.Millisecond % 6);
 
@@ -190,6 +217,8 @@ public class GamePlayManager : IPlayerEvent
                     //    dicBGLevelValue[obj.Key]++;
                     //    obj.Value.LevelUp(dicBGLevelValue[obj.Key]);
                     //}
+
+                    thisAnswer = finalAnswer;
 
                     Debug.Log("ChooseState.End");
                     break;
@@ -267,15 +296,15 @@ public class GamePlayManager : IPlayerEvent
     {
         if (GameSetting.Life <= 0)
             return true;
-        if (GameSetting.Life >= 100)
+        if (GameSetting.Life >= 20)
             return true;
         if (GameSetting.Quality <= 0)
             return true;
-        if (GameSetting.Quality >= 100)
+        if (GameSetting.Quality >= 20)
             return true;
         if (GameSetting.Money <= 0)
             return true;
-        if (GameSetting.Money >= 100)
+        if (GameSetting.Money >= 20)
             return true;
         if (GameSetting.ChooseCount <= 0)
             return true;

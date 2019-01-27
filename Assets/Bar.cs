@@ -16,9 +16,9 @@ public class Bar : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
             SetValue(50);       
     }
-    //0~100
+    //0~20
     public void SetValue(float b)
     {
-        Bar_1.size = new Vector2(0.034f*b, 0.25f); 
+        Bar_1.size = new Vector2(0.034f*5.0f*b, 0.25f); 
     }
 }
