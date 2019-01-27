@@ -568,11 +568,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 8950842462857282968, guid: 6ac62e515c94ca94c8e602cfd7288508,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8950842462054282257, guid: 6ac62e515c94ca94c8e602cfd7288508,
         type: 3}
       propertyPath: m_playerID
@@ -1055,6 +1050,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1156445543930591019, guid: a2a544ed09fc38d4b8596201a6811634,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 666489526208556566, guid: a2a544ed09fc38d4b8596201a6811634,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956948656008916836, guid: a2a544ed09fc38d4b8596201a6811634,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2a544ed09fc38d4b8596201a6811634, type: 3}
