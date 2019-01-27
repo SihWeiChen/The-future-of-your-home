@@ -159,12 +159,37 @@ public class GamePlayManager : IPlayerEvent
                     m_chooseState = ChooseState.ShowItem;
 
                     ItemPutType itemType = TableData.Init.GetChooseTableData(answer).ItemType;
-                    
-                    foreach (KeyValuePair<BG_LevelUp_Item, BGLevelUp> obj in dicBGLevelUp)
+
+                    itemType = (ItemPutType)(DateTime.Now.Millisecond % 6);
+
+                    switch (itemType)
                     {
-                        dicBGLevelValue[obj.Key]++;
-                        obj.Value.LevelUp(dicBGLevelValue[obj.Key]);
+                        case ItemPutType.Bookcase:
+                            dicBGLevelValue[BG_LevelUp_Item.Bookcase]++;
+                            dicBGLevelUp[BG_LevelUp_Item.Bookcase].LevelUp(dicBGLevelValue[BG_LevelUp_Item.Bookcase]);
+                            break;
+                        case ItemPutType.Lamp:
+                            dicBGLevelValue[BG_LevelUp_Item.Lamp]++;
+                            dicBGLevelUp[BG_LevelUp_Item.Lamp].LevelUp(dicBGLevelValue[BG_LevelUp_Item.Lamp]);
+                            break;
+                        case ItemPutType.Photo:
+                            dicBGLevelValue[BG_LevelUp_Item.Photo]++;
+                            dicBGLevelUp[BG_LevelUp_Item.Photo].LevelUp(dicBGLevelValue[BG_LevelUp_Item.Photo]);
+                            break;
+                        case ItemPutType.Sofa:
+                            dicBGLevelValue[BG_LevelUp_Item.Sofa]++;
+                            dicBGLevelUp[BG_LevelUp_Item.Sofa].LevelUp(dicBGLevelValue[BG_LevelUp_Item.Sofa]);
+                            break;
+                        case ItemPutType.Table:
+                            dicBGLevelValue[BG_LevelUp_Item.Table]++;
+                            dicBGLevelUp[BG_LevelUp_Item.Table].LevelUp(dicBGLevelValue[BG_LevelUp_Item.Table]);
+                            break;
                     }
+                    //foreach (KeyValuePair<BG_LevelUp_Item, BGLevelUp> obj in dicBGLevelUp)
+                    //{
+                    //    dicBGLevelValue[obj.Key]++;
+                    //    obj.Value.LevelUp(dicBGLevelValue[obj.Key]);
+                    //}
 
                     Debug.Log("ChooseState.End");
                     break;
