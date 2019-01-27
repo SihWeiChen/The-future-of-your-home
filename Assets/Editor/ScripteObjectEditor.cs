@@ -82,5 +82,22 @@ public class ScripteObjectEditor : EditorWindow
             EditorUtility.SetDirty(eventList);
             EditorUtility.SetDirty(eventList2);
         }
+
+        if (GUILayout.Button("Updata Event Data"))
+        {
+            for (int i = 0; i < eventList.gameEventTables.Count; i++)
+            {
+                eventList.gameEventTables[i].NID = i;
+                if (i==0){
+                    eventList.gameEventTables[i].ChooseID1 = 0;
+                    eventList.gameEventTables[i].ChooseID2 = 0;
+                    eventList.gameEventTables[i].ChooseID3 = 0;
+                }else {
+                    eventList.gameEventTables[i].ChooseID1 = i*3-1;
+                    eventList.gameEventTables[i].ChooseID2 = i * 3;
+                    eventList.gameEventTables[i].ChooseID3 = i * 3 +1;
+                }
+            }
+        }
     }
 }
