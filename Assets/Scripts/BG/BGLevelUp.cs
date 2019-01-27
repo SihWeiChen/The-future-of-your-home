@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BGLevelUp : MonoBehaviour
 {
-
+    public Animator Light;
     //public OBJLevelUp[] LVGameObj;
     private Animator animator;
     // Start is called before the first frame update
@@ -23,6 +23,14 @@ public class BGLevelUp : MonoBehaviour
     {
 
         this.animator.SetInteger("LV", LV);
+
+
+        if (this.Light)
+        {
+            this.Light.SetInteger("LV", LV);
+        }
+
+
 
         //for (int i = 0; i < this.LVGameObj.Length; i++)
         //{
