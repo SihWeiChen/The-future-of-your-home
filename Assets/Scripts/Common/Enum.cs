@@ -10,7 +10,7 @@ namespace Common
         public static int Money = 10;
         public static int Quality = 10;
         public static int Life = 10;
-        public static int ChooseCount = 10;
+        public static int ChooseCount = 20;
         public static int CurEventID = 0;
     }
 

@@ -177,9 +177,17 @@ public class GamePlayManager : IPlayerEvent
                     stateList.SetMoney(GameSetting.Money, money);
                     stateList.SetQuality(GameSetting.Quality, quality);
 
+                    GameSetting.ChooseCount--;
+                    if (GameSetting.ChooseCount < 5)
+                        m_questionState = QuestionState.Fight;
+                    else if (GameSetting.ChooseCount < 10)
+                        m_questionState = QuestionState.Develop;
+                    else
+                        m_questionState = QuestionState.Creator;
 
-                    m_questionState = (QuestionState) TableData.Init.GetChooseTableData(finalAnswer).OpenEventNID;
-                    m_questionState = QuestionState.Develop;
+                    Debug.LogWarning("m_questionState: " + m_questionState.ToString());
+
+                    //m_questionState = (QuestionState) TableData.Init.GetChooseTableData(finalAnswer).OpenEventNID;
 
                     foreach (PlayerController player in playerList)
                     {
@@ -255,7 +263,8 @@ public class GamePlayManager : IPlayerEvent
                 case ChooseState.GameOver:
                     Debug.LogError("Game Over!!!");
 
-
+                    GameLogic.GetInstance.GetAudioManager().Stop(Manager.AudioManager.AUDIO_TYPE.BGM);
+                    GameLogic.GetInstance.GetAudioManager().Play(Manager.AudioManager.AUDIO_TYPE.FailGame);
                     GameLogic.GetInstance.GetGamePlayerManager().ShowRecord();
                     GameLogic.GetInstance.GetGameData().ioState = IO_STATE.Over;
                     break;
