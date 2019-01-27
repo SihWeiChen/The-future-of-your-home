@@ -12,10 +12,11 @@ namespace Controller
         [SerializeField] Animation m_anim;
         [SerializeField] Image m_frame;
         [SerializeField] RectTransform m_tranButtons;
-
+        [SerializeField] Text m_txtEndingContent;
+        [SerializeField] Text m_txtEndingContent2;
         bool m_bRoting;
         float m_fRotValue;
-        const float m_fRotTime = 2f;
+        const float m_fRotTime = 2.01f;
 
         void Start()
         {
@@ -25,7 +26,10 @@ namespace Controller
             m_imgBG.enabled = false;
             m_frame.enabled = false;
             m_tranButtons.gameObject.SetActive(false);
-
+            m_txtEndingContent.text = "";
+            m_txtEndingContent.enabled = false;
+            m_txtEndingContent2.text = "";
+            m_txtEndingContent2.enabled = false;
             m_bRoting = false;
         }
 
@@ -49,6 +53,12 @@ namespace Controller
         public void ShowRecord()
         {
             ScreenShot();
+            m_txtEndingContent.text = GameLogic.GetInstance.GetGameData().gameEndContent;
+            m_txtEndingContent.enabled = true;
+
+            m_txtEndingContent2.text = GameLogic.GetInstance.GetGameData().gameEndContent2;
+            m_txtEndingContent2.enabled = true;
+
             m_imgPicture.enabled = true;
             m_imgBG.enabled = true;
             m_frame.enabled = true;

@@ -309,19 +309,47 @@ public class GamePlayManager : IPlayerEvent
     bool CheckIsOver()
     {
         if (GameSetting.Life <= 0)
+        {
+            GameLogic.GetInstance.GetGameData().gameEndContent2 = "生活 0%";
+            GameLogic.GetInstance.GetGameData().gameEndContent = "你沒有了生活";
             return true;
+        }
         if (GameSetting.Life >= 20)
+        {
+            GameLogic.GetInstance.GetGameData().gameEndContent2 = "生活 100%";
+            GameLogic.GetInstance.GetGameData().gameEndContent = "生活爆棚啦!!!!!!";
             return true;
+        }
         if (GameSetting.Quality <= 0)
+        {
+            GameLogic.GetInstance.GetGameData().gameEndContent2 = "品質 0%";
+            GameLogic.GetInstance.GetGameData().gameEndContent = "你的內褲破了";
             return true;
+        }
         if (GameSetting.Quality >= 20)
+        {
+            GameLogic.GetInstance.GetGameData().gameEndContent2 = "品質 100%";
+            GameLogic.GetInstance.GetGameData().gameEndContent = "你的牙齒亮金金";
             return true;
+        }
         if (GameSetting.Money <= 0)
+        {
+            GameLogic.GetInstance.GetGameData().gameEndContent2 = "金錢 0%";
+            GameLogic.GetInstance.GetGameData().gameEndContent = "路邊的野花不要採";
             return true;
+        }
         if (GameSetting.Money >= 20)
+        {
+            GameLogic.GetInstance.GetGameData().gameEndContent2 = "金錢 100%";
+            GameLogic.GetInstance.GetGameData().gameEndContent = "你家缺掃馬桶的嗎?";
             return true;
+        }
         if (GameSetting.ChooseCount <= 0)
+        {
+            GameLogic.GetInstance.GetGameData().gameEndContent2 = "你的耐久度 100%";
+            GameLogic.GetInstance.GetGameData().gameEndContent = "玩太久 強制結束";
             return true;
+        }
         return false;
     }
 

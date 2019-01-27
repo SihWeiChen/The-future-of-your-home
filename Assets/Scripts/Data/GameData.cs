@@ -11,6 +11,9 @@ namespace Data
         const int m_iPlayerCount = 2;
         PlayerUIData[] m_playerUIData;
 
+        string m_iGameEndingContent;
+        string m_iGameEndingContent2;
+
         public IO_STATE ioState
         {
             get { return m_eIOState; }
@@ -26,6 +29,18 @@ namespace Data
         {
             get { return m_playerUIData; }
             set { m_playerUIData = value; }
+        }
+
+        public string gameEndContent
+        {
+            get { return m_iGameEndingContent; }
+            set { m_iGameEndingContent = value; }
+        }
+
+        public string gameEndContent2
+        {
+            get { return m_iGameEndingContent2; }
+            set { m_iGameEndingContent2 = value; }
         }
 
         public void Start()
