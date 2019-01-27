@@ -9,6 +9,8 @@ namespace Controller
     {
         [SerializeField] Animation m_animFrame;
 
+        public List<answerStateController> m_answer = new List<answerStateController>();
+
         void Start()
         {
             GameLogic.GetInstance.GetGamePlayerManager().Regist(GamePlayManager.RegistType.DialogController, this);

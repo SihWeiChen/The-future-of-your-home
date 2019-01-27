@@ -424,6 +424,8 @@ public class GamePlayManager : IPlayerEvent
             Debug.LogError("Error1");
             data.ChooseID1 = 1;
         }
+        GameChooseTableData answer1 = TableData.Init.GetChooseTableData(data.ChooseID1);
+        GameLogic.GetInstance.GetGamePlayerManager().dialog.m_answer[0].SetAnswerState(answer1.ChangeQuality, answer1.ChangeFeel, answer1.ChangeMoney);
         string choose1 = TableData.Init.GetChooseTableData(data.ChooseID1).ChooseName;
         Debug.Log("SetQuestion ChooseID2: " + data.ChooseID2);
         if (data.ChooseID2 == 0)
@@ -431,6 +433,8 @@ public class GamePlayManager : IPlayerEvent
             Debug.LogError("Error2");
             data.ChooseID2 = 1;
         }
+        GameChooseTableData answer2 = TableData.Init.GetChooseTableData(data.ChooseID2);
+        GameLogic.GetInstance.GetGamePlayerManager().dialog.m_answer[1].SetAnswerState(answer2.ChangeQuality, answer2.ChangeFeel, answer2.ChangeMoney);
         string choose2 = TableData.Init.GetChooseTableData(data.ChooseID2).ChooseName;
         Debug.Log("SetQuestion ChooseID3: " + data.ChooseID3);
         if (data.ChooseID3 == 0)
@@ -438,6 +442,8 @@ public class GamePlayManager : IPlayerEvent
             Debug.LogError("Error3");
             data.ChooseID3 = 1;
         }
+        GameChooseTableData answer3 = TableData.Init.GetChooseTableData(data.ChooseID3);
+        GameLogic.GetInstance.GetGamePlayerManager().dialog.m_answer[2].SetAnswerState(answer3.ChangeQuality, answer3.ChangeFeel, answer3.ChangeMoney);
         string choose3 = TableData.Init.GetChooseTableData(data.ChooseID3).ChooseName;
         question.SetQuestionString(data.EventName, choose1, choose2, choose3);
     }
@@ -450,7 +456,7 @@ public class GamePlayManager : IPlayerEvent
         Fight = 3,
         All = 4,
     }
-    QuestionState m_questionState = QuestionState.Demo;
+    QuestionState m_questionState = QuestionState.Creator;
 
 
     public enum QuestionEndID
@@ -471,8 +477,8 @@ public class GamePlayManager : IPlayerEvent
 
     public int GetQuestionID()
     {
-        int questionID = 0;
-        questionID = UnityEngine.Random.Range(0, 5);
+        int questionID = 1;
+        questionID = UnityEngine.Random.Range(1, 5);
         return questionID;
         switch (m_questionState)
         {
