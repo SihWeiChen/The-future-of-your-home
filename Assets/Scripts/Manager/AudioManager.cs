@@ -14,6 +14,9 @@ namespace Manager
             Son,
             BGM001,
             Click001,
+            Confirm,
+            FailGame,
+            GetMoney,
         }
 
         Transform m_tranAudioManager;
@@ -24,6 +27,9 @@ namespace Manager
         AudioSource m_audio_son;
         AudioSource m_audio_bgm001;
         AudioSource m_audio_click001;
+        AudioSource m_audio_confirm;
+        AudioSource m_audio_failGame;
+        AudioSource m_audio_getMoney;
 
         public AudioManager()
         {}
@@ -38,6 +44,9 @@ namespace Manager
             m_audio_son = m_tranAudioManager.transform.Find("aud_son").GetComponent<AudioSource>();
             m_audio_bgm001 = m_tranAudioManager.transform.Find("aud_bgm01").GetComponent<AudioSource>();
             m_audio_click001 = m_tranAudioManager.transform.Find("aud_click001").GetComponent<AudioSource>();
+            m_audio_confirm = m_tranAudioManager.transform.Find("aud_confirm").GetComponent<AudioSource>();
+            m_audio_failGame = m_tranAudioManager.transform.Find("aud_failGame").GetComponent<AudioSource>();
+            m_audio_getMoney = m_tranAudioManager.transform.Find("aud_getMoney").GetComponent<AudioSource>();
 
             Play(AUDIO_TYPE.BGM001);
         }
@@ -84,6 +93,18 @@ namespace Manager
                 case AUDIO_TYPE.Click001:
                     m_audio_click001.Stop();
                     m_audio_click001.Play();
+                    break;
+                case AUDIO_TYPE.Confirm:
+                    m_audio_confirm.Stop();
+                    m_audio_confirm.Play();
+                    break;
+                case AUDIO_TYPE.FailGame:
+                    m_audio_failGame.Stop();
+                    m_audio_failGame.Play();
+                    break;
+                case AUDIO_TYPE.GetMoney:
+                    m_audio_getMoney.Stop();
+                    m_audio_getMoney.Play();
                     break;
                 default:
                     break;
