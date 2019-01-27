@@ -245,6 +245,7 @@ public class GamePlayManager : IPlayerEvent
                     break;
                 case ChooseState.GameOver:
                     Debug.LogError("Game Over!!!");
+                    GameLogic.GetInstance.GetGamePlayerManager().ShowRecord();
                     GameLogic.GetInstance.GetGameData().ioState = IO_STATE.Over;
                     break;
             }
