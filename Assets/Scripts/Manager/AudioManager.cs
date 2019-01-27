@@ -26,6 +26,7 @@ namespace Manager
             Confirm,
             FailGame,
             GetMoney,
+            BGM,
         }
 
         Transform m_tranAudioManager;
@@ -128,6 +129,10 @@ namespace Manager
                     m_audio_getMoney.Stop();
                     m_audio_getMoney.Play();
                     break;
+                case AUDIO_TYPE.BGM:
+                    m_audio_game_bgm.Stop();
+                    m_audio_game_bgm.Play();
+                    break;
                 default:
                     break;
             }
@@ -164,6 +169,9 @@ namespace Manager
                 case AUDIO_TYPE.GetMoney:
                     m_audio_getMoney.Stop();
                     break;
+                case AUDIO_TYPE.BGM:
+                    m_audio_game_bgm.Stop();
+                    break;
                 default:
                     break;
             }
@@ -181,7 +189,7 @@ namespace Manager
                     Debug.Log("iRandomIndex-1: " + iRandomIndex);
                     m_eCurBGM_LEVEL = BGM_LEVEL.Level01;
                     m_audio_game_bgm.clip = m_audioGroup_BGM_Level01[iRandomIndex].clip;
-                    m_audio_game_bgm.Play();
+                    Play(AUDIO_TYPE.BGM);
                 }
             }
             else if (GameSetting.Life >= 7 && GameSetting.Life <= 13)
@@ -192,7 +200,7 @@ namespace Manager
                     Debug.Log("iRandomIndex-2: " + iRandomIndex);
                     m_eCurBGM_LEVEL = BGM_LEVEL.Level02;
                     m_audio_game_bgm.clip = m_audioGroup_BGM_Level02[iRandomIndex].clip;
-                    m_audio_game_bgm.Play();
+                    Play(AUDIO_TYPE.BGM);
                 }
             }
             else if (GameSetting.Life < 7)
@@ -203,7 +211,7 @@ namespace Manager
                     Debug.Log("iRandomIndex-3: " + iRandomIndex);
                     m_eCurBGM_LEVEL = BGM_LEVEL.Level03;
                     m_audio_game_bgm.clip = m_audioGroup_BGM_Level03[iRandomIndex].clip;
-                    m_audio_game_bgm.Play();
+                    Play(AUDIO_TYPE.BGM);
                 }
             }
         }
