@@ -12,13 +12,22 @@ public class StateController : MonoBehaviour
     public TextMeshPro m_Q_Value;
     public TextMeshPro m_L_Value;
     public TextMeshPro m_M_Value;
-    // Start is called before the first frame update
+
+    [SerializeField] TextMeshProUGUI m_tmpQulity;
+    [SerializeField] TextMeshProUGUI m_tmpLife;
+    [SerializeField] TextMeshProUGUI m_tmpMoney;
+    [SerializeField] Animation m_animQuality;
+    [SerializeField] Animation m_animLife;
+    [SerializeField] Animation m_animMoney;
+
     void Start()
     {
-        SetQuality(0);
-        SetLife(0);
-        SetMoney(0);
-
+        SetQuality(0, 0.0f);
+        SetLife(0, 0.0f);
+        SetMoney(0, 0.0f);
+        m_tmpQulity.enabled = false;
+        m_tmpLife.enabled = false;
+        m_tmpMoney.enabled = false;
         GameLogic.GetInstance.GetGamePlayerManager().Regist(GamePlayManager.RegistType.StateController, this);
     }
 
@@ -27,22 +36,43 @@ public class StateController : MonoBehaviour
     {
     }
 
-    public void SetQuality(float value)
+    public void SetQuality(float value, float v_extraValue)
     {
         m_bars_Q.SetValue(value);
         m_Q_Value.text = value.ToString();
+        m_tmpQulity.text = v_extraValue < 0 ? "-" + v_extraValue.ToString() : "+" + v_extraValue.ToString();
+
+        if (v_extraValue != 0)
+        { 
+            m_animQuality.Play();
+            m_tmpQulity.enabled = true;
+        }
     }
 
-    public void SetLife(float value)
+    public void SetLife(float value, float v_extraValue)
     {
         m_bars_L.SetValue(value);
         m_L_Value.text = value.ToString();
+        m_tmpLife.text = v_extraValue < 0 ? "-" + v_extraValue.ToString() : "+" + v_extraValue.ToString();
+
+        if (v_extraValue != 0)
+        { 
+            m_animLife.Play();
+            m_tmpLife.enabled = true;
+        }
     }
 
-    public void SetMoney(float value)
+    public void SetMoney(float value, float v_extraValue)
     {
         m_bars_M.SetValue(value);
         m_M_Value.text = value.ToString();
+        m_tmpMoney.text = v_extraValue < 0 ? "-" + v_extraValue.ToString() : "+" + v_extraValue.ToString();
+
+        if (v_extraValue != 0)
+        { 
+            m_animMoney.Play();
+            m_tmpMoney.enabled = true;
+        }
     }
 
 }

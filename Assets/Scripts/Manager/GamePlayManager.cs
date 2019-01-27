@@ -171,9 +171,9 @@ public class GamePlayManager : IPlayerEvent
                     // every time money add
                     GameSetting.Money++;
 
-                    stateList.SetLife(GameSetting.Life);
-                    stateList.SetMoney(GameSetting.Money);
-                    stateList.SetQuality(GameSetting.Quality);
+                    stateList.SetLife(GameSetting.Life, life);
+                    stateList.SetMoney(GameSetting.Money, money);
+                    stateList.SetQuality(GameSetting.Quality, quality);
 
 
                     m_questionState = (QuestionState) TableData.Init.GetChooseTableData(finalAnswer).OpenEventNID;
@@ -269,9 +269,9 @@ public class GamePlayManager : IPlayerEvent
             case RegistType.StateController:
                 stateList = (StateController)r_object;
 
-                stateList.SetLife(GameSetting.Life);
-                stateList.SetMoney(GameSetting.Money);
-                stateList.SetQuality(GameSetting.Quality);
+                stateList.SetLife(GameSetting.Life, 0.0f);
+                stateList.SetMoney(GameSetting.Money, 0.0f);
+                stateList.SetQuality(GameSetting.Quality, 0.0f);
 
                 break;
             case RegistType.QuestionController:
