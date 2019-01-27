@@ -480,12 +480,10 @@ public class GamePlayManager : IPlayerEvent
     public int GetQuestionID()
     {
         int questionID = 1;
-        questionID = UnityEngine.Random.Range(1, 5);
-        return questionID;
         switch (m_questionState)
         {
             case QuestionState.Demo:
-                questionID = 0;
+                questionID = 1;
                 break;
             case QuestionState.Creator:
                 questionID = UnityEngine.Random.Range((int)QuestionEndID.Demo, (int)QuestionEndID.Creator)+1;
