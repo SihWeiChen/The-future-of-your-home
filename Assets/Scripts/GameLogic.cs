@@ -14,6 +14,9 @@ public class GameLogic : MonoBehaviour
     GamePlayManager m_clsGamePlayerManager;
     AudioManager m_clsAudioManager;
 
+    float m_fStartGameCDClock;
+    const float m_fStartGameCDTime = 2.0f;
+
     void Awake()
     {
         Debug.LogWarning("GameLogic / Awake");
@@ -74,12 +77,18 @@ public class GameLogic : MonoBehaviour
 
     void DetectStartGame()
     {
-        if (GetGameData().startGame == true)
+        if (GetGameData().playerUIDatas[0].playerReady && GetGameData().playerUIDatas[1].playerReady)
         {
-            GetGameData().startGame = false;
+            m_fStartGameCDClock += Time.deltaTime;
 
-            GetUIManager().StartCDTimer();
-            //SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
+            if (m_fStartGameCDClock <= m_fStartGameCDTime)
+                return;
+
+            GetGameData().playerUIDatas[0].playerReady = false;
+            GetGameData().playerUIDatas[1].playerReady = false;
+            m_fStartGameCDClock = 0.0f;
+
+            GetUIManager().PlayLoading();
         }
     }
 

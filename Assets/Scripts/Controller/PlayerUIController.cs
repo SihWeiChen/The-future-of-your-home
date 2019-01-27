@@ -32,10 +32,6 @@ namespace Controller
         const int m_iTimes = 5;
         int m_iCurTimes;
 
-        bool m_bStartCountDown;
-        float m_fCountDownClock;
-        float m_fCountDownTime = 1.0f;
-
         LOADING_STATE m_eCurLoadingState;
         LOADING_STATE m_eNextLoadingState;
 
@@ -76,20 +72,12 @@ namespace Controller
             m_fChangeSceneClock = 0.0f;
             m_tmpLogo.enabled = true;
             m_tmpCDTimer.enabled = false;
-            m_bStartCountDown = false;
-            m_fCountDownClock = 0.0f;
             m_iCurTimes = m_iTimes;
             InitSettingPlayerIDData();
         }
 
         public void Update()
         {
-            if (m_bStartCountDown)
-            {
-                m_fCountDownClock += Time.deltaTime;
-                if (m_fCountDownClock >= m_fCountDownTime)
-                    StartCDTimer();
-            }
 
             DetectLoadingText();
 
@@ -205,7 +193,8 @@ namespace Controller
         void DetermineCharacter(int v_playerID)
         {
             int iDeterminePos = GameLogic.GetInstance.GetGameData().playerUIDatas[v_playerID].uiPos;
-            m_playerUIItemController[iDeterminePos].DetermineCharacter();
+            m_playerUIItemController[iDeterminePos].DetermineCharacter(v_playerID);
+
         }
 
         void UpdateUI()
@@ -236,11 +225,6 @@ namespace Controller
             m_eNextLoadingState = LOADING_STATE.Loading01;
 
             m_bChangeScene = true;
-        }
-
-        public void StartCDTimer()
-        {
-            PlayLoading();
         }
 
         void PlayAnimCharacterSacle()

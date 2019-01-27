@@ -7,6 +7,7 @@ namespace Data
     public class PlayerUIData
     {
         int m_iUIPos;
+        bool m_bPlayerReady;
 
         public PlayerUIData()
         {
@@ -40,6 +41,12 @@ namespace Data
                 else if (m_iUIPos < 0)
                     m_iUIPos = 0;
             }
+        }
+
+        public bool playerReady
+        {
+            get { return m_bPlayerReady; }
+            set { m_bPlayerReady = value; }
         }
     }
 }

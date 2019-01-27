@@ -13,9 +13,6 @@ namespace Manager
         bool m_bPressRight_P2;
         bool m_bPressLeft_P2;
 
-        bool m_bReady_P1;
-        bool m_bReady_P2;
-
         void Start()
         {
 
@@ -23,23 +20,7 @@ namespace Manager
 
         void Update()
         {
-
-            //if (Input.GetKeyDown(KeyCode.JoystickButton0))
-            //    Debug.Log(string.Format("JoystickButton - 0"));
-
-            //if (Input.GetKeyDown(KeyCode.JoystickButton1))
-            //    Debug.Log(string.Format("JoystickButton - 1"));
-
-            //if (Input.GetKeyDown(KeyCode.JoystickButton2))
-            //    Debug.Log(string.Format("JoystickButton - 2"));
-
-            //if (Input.GetKeyDown(KeyCode.JoystickButton3))
-            //    Debug.Log(string.Format("JoystickButton - 3"));
-
-            //if (Input.GetKeyDown(KeyCode.JoystickButton4))
-                //Debug.Log(string.Format("JoystickButton - 4"));
-
-
+            #region 1P
             // ========= 1P
             if (Input.GetButtonDown("P1_B"))
                 P1_B();
@@ -52,13 +33,13 @@ namespace Manager
 
             if (Input.GetButtonDown("P1_C"))
                 P1_C();
-                
+
 
             float fP1_H = Input.GetAxis("P1_Horizontal");
             float fP1_V = Input.GetAxis("P1_Vertical");
 
             if (fP1_H == 0)
-            { 
+            {
                 m_bPressRight_P1 = false;
                 m_bPressLeft_P1 = false;
             }
@@ -79,11 +60,11 @@ namespace Manager
                     m_bPressLeft_P1 = true;
                     P1_Left();
                 }
-            }    
+            }
+            #endregion
 
+            #region 2P
             // ========= 2P
-
-
             if (Input.GetButtonDown("P2_B"))
                 P2_B();
 
@@ -96,50 +77,12 @@ namespace Manager
             if (Input.GetButtonDown("P2_C"))
                 P2_C();
 
-            //float fP2_H = Input.GetAxis("P2_Horizontal") * Time.deltaTime * 10.0f;
-            //float fP2_V = Input.GetAxis("P2_Vertical") * Time.deltaTime * 10.0f;
-
-            //if (fP2_H == 0)
-            //{
-            //    m_bPressRight_P2 = false;
-            //    m_bPressLeft_P2 = false;
-            //}
-
-            //if (fP2_H >= 0.1f)
-            //{
-            //    if (m_bPressRight_P2 == false)
-            //    {
-            //        m_bPressRight_P2 = true;
-            //        P2_Right();
-            //    }
-
-            //}
-            //else if (fP2_H <= -0.1f)
-            //{
-            //    if (m_bPressLeft_P2 == false)
-            //    {
-            //        m_bPressLeft_P2 = true;
-            //        P2_Left();
-            //    }
-            //}
-
             if (Input.GetKeyDown(KeyCode.Z))
                 P2_Left();
 
             if (Input.GetKeyDown(KeyCode.X))
                 P2_Right();
-
-            DetectStartGame();
-        }
-
-        void DetectStartGame()
-        {
-            if (m_bReady_P1 && m_bReady_P2)
-            { 
-                GameLogic.GetInstance.GetGameData().startGame = true;
-                m_bReady_P1 = false;
-                m_bReady_P2 = false;
-            }
+            #endregion
         }
 
         void P1_A()
@@ -151,10 +94,10 @@ namespace Manager
                     break;
                 case IO_STATE.SelectCharacter:
 
-                    if (m_bReady_P1 == true)
+                    if (GameLogic.GetInstance.GetGameData().playerUIDatas[0].playerReady == true)
                         break;
 
-                    m_bReady_P1 = true;
+                    //GameLogic.GetInstance.GetGameData().playerUIDatas[0].playerReady = true;
                     GameLogic.GetInstance.GetUIManager().PlayerIOCommand(0, IO_Command.A);
                     break;
                 case IO_STATE.InGame:
@@ -224,7 +167,7 @@ namespace Manager
                 case IO_STATE.None:
                     break;
                 case IO_STATE.SelectCharacter:
-                    if (m_bReady_P1 == true)
+                    if (GameLogic.GetInstance.GetGameData().playerUIDatas[0].playerReady == true)
                         break;
                     GameLogic.GetInstance.GetUIManager().PlayerIOCommand(0, IO_Command.Right);
                     break;
@@ -244,7 +187,7 @@ namespace Manager
                 case IO_STATE.None:
                     break;
                 case IO_STATE.SelectCharacter:
-                    if (m_bReady_P1 == true)
+                    if (GameLogic.GetInstance.GetGameData().playerUIDatas[0].playerReady == true)
                         break;
                     GameLogic.GetInstance.GetUIManager().PlayerIOCommand(0, IO_Command.Left);
                     break;
@@ -265,10 +208,10 @@ namespace Manager
                     break;
                 case IO_STATE.SelectCharacter:
 
-                    if (m_bReady_P2 == true)
+                    if (GameLogic.GetInstance.GetGameData().playerUIDatas[1].playerReady == true)
                         break;
 
-                    m_bReady_P2 = true;
+                    //GameLogic.GetInstance.GetGameData().playerUIDatas[1].playerReady = true;
                     GameLogic.GetInstance.GetUIManager().PlayerIOCommand(1, IO_Command.A);
 
                     break;
@@ -339,7 +282,7 @@ namespace Manager
                 case IO_STATE.None:
                     break;
                 case IO_STATE.SelectCharacter:
-                    if (m_bReady_P2 == true)
+                    if (GameLogic.GetInstance.GetGameData().playerUIDatas[1].playerReady == true)
                         break;
                         
                     GameLogic.GetInstance.GetUIManager().PlayerIOCommand(1, IO_Command.Right);
@@ -360,7 +303,7 @@ namespace Manager
                 case IO_STATE.None:
                     break;
                 case IO_STATE.SelectCharacter:
-                    if (m_bReady_P2 == true)
+                    if (GameLogic.GetInstance.GetGameData().playerUIDatas[1].playerReady == true)
                         break;
                     GameLogic.GetInstance.GetUIManager().PlayerIOCommand(1, IO_Command.Left);
                     break;

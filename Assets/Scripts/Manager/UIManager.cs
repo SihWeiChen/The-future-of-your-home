@@ -52,9 +52,9 @@ namespace Manager
             m_lisPlayerUIController.Command(v_playerID, r_ioCommand);
         }
 
-        public void StartCDTimer()
+        public void PlayLoading()
         {
-            m_lisPlayerUIController.StartCDTimer();
+            m_lisPlayerUIController.PlayLoading();
         }
 
     }
