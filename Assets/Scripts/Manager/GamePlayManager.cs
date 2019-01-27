@@ -241,7 +241,14 @@ public class GamePlayManager : IPlayerEvent
                         GameLogic.GetInstance.GetGamePlayerManager().dialog.Play_Show();
                     }
                     else
+                    {
                         m_chooseState = ChooseState.GameOver;
+                        stateList.gameObject.SetActive(false);
+                        foreach (PlayerController player in playerList)
+                        {
+                            player.gameObject.SetActive(false);
+                        }
+                    }
                     break;
                 case ChooseState.GameOver:
                     Debug.LogError("Game Over!!!");
@@ -348,6 +355,9 @@ public class GamePlayManager : IPlayerEvent
         Debug.Log("v_playerID: " + v_playerID);
         Debug.Log("IO_Command: " + r_ioCommand.ToString());
         PlayerController player = playerList[v_playerID];
+
+        if (m_chooseState != ChooseState.WaitOther)
+            return;
         switch (r_ioCommand)
         {
             case IO_Command.Left:
