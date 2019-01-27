@@ -66,4 +66,16 @@ namespace Common
         Left,
         Right,
     }
+
+    /// <summary>
+    /// 物品放置類型
+    /// </summary>
+    public enum ItemPutType{
+        None,
+        Sofa,
+        Bookcase,
+        Photo,
+        Lamp,
+    }
+
 }

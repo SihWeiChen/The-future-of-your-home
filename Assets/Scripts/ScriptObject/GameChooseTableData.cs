@@ -25,6 +25,7 @@ public class GameChooseTableData
     /// 改變金錢
     /// </summary>
     public int ChangeMoney;
+    public Common.ItemPutType ItemType;
     /// <summary>
     /// 開啟事件
     /// </summary>
